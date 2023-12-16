@@ -75,6 +75,7 @@ const AboutMe = () => {
                         </div>
                     </div>
                 </div>
+                <div className='bg-black w-full h-[.5px]'></div>
             </div>
         </>
     )
