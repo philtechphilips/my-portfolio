@@ -1,8 +1,13 @@
-import AboutMe from '@/components/Home/AboutMe'
-import Image from 'next/image'
+import AboutMe from '@/components/Home/AboutMe';
+import JobExperience from '@/components/Home/JobExperience';
+import RecentProject from '@/components/Home/RecentProject';
 
 export default function Home() {
   return (
-   <AboutMe />
+    <>
+      <AboutMe />
+      <RecentProject />
+      <JobExperience />
+    </>
   )
 }

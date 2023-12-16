@@ -28,6 +28,3 @@ body {
   font-family: "General Sans", "Ones Regular", sans-serif;
 }
 
-body::-webkit-scrollbar {
-    display: none;
-  }
