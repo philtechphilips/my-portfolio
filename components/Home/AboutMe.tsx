@@ -4,16 +4,16 @@ import React from 'react'
 import Marquee from 'react-fast-marquee';
 import 'remixicon/fonts/remixicon.css';
 
-const AboutMe = () => {
+const AboutMe = ({ changeCursor }: any) => {
     return (
         <>
             <div className="w-full px-5  md:h-screen flex gap-0 flex-col md:-mt-4 justify-center">
                 <div className='bg-black w-full h-[.5px]'></div>
                 <div className='w-full'>
-                    <h1 className='text-black text-center text-[60px] md:text-[180px] font-semibold md:font-medium '>SOFTWARE</h1>
+                    <h1 onMouseEnter={() => changeCursor(true)} onMouseLeave={() => changeCursor(false)} className='text-black text-center text-[60px] md:text-[180px] font-semibold md:font-medium '>SOFTWARE</h1>
                     <div className='bg-black w-full h-[.5px]'></div>
                     <div className='flex items-center justify-between'>
-                    <Image src="/images/asterisk.svg" alt='asterick' width={15} height={15} className='md:hidden' />
+                        <Image src="/images/asterisk.svg" alt='asterick' width={15} height={15} className='md:hidden' />
                         <Image src="/images/asterisk.svg" alt='asterick' width={50} height={50} className='hidden md:block' />
                         <h1 className='text-black text-center text-[60px] md:text-[180px] font-semibold md:font-medium'>
                             ENGINEER
@@ -52,30 +52,69 @@ const AboutMe = () => {
 
             <div className='w-full px-5'>
                 <div className='w-full'>
-                    <div className='flex flex-col md:flex-row justify-between py-10'>
-                        <div className='w-1/3'>
-                            <h5 className='text-black uppercase text-lg font-[Gt]'>/Skillset</h5>
-                        </div>
-                        <div className='w-full md:w-2/3 mt-0'>
-                            <h1 className='text-center text-4xl mt-5 md:text-[80px] capitalize md:mt-16'>Creative</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>Teamplayer</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>Critical thinker</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>html</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>css</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>bootstrap</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>tailwind css</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>mui</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>scss</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>sql/mysql</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>Mongodb</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>redis</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>react/next Js</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>nodejs/express</h1>
-                            <h1 className='text-center text-4xl mt-3 md:text-[80px] capitalize md:mt-16'>php/laravel</h1>
-                        </div>
-                    </div>
+                    <h5 className='text-black uppercase text-lg font-[Gt]'>/Skillset</h5>
                 </div>
-                <div className='bg-black w-full h-[.5px]'></div>
+                <Marquee style={{ height: "120px", display: "flex", alignItems: "center" }} gradient={true} gradientColor='#FAFAFA' gradientWidth={200}>
+                    <h1 className='text-center font-thin text-4xl mt-5 md:text-[80px] capitalize mr-5'>Creative</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className='mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>Teamplayer</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className='mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>Critical thinker</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className='mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>html</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className='mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>css</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className=' mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>bootstrap</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className=' mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>tailwind css</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className='mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>mui</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className=' mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>scss</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className='mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>sql/mysql</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className='mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>Mongodb</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className='mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>redis</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className=' mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>react/next Js</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className='mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>nodejs/express</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className='mt-5 mr-5' />
+
+                    <h1 className='text-center font-light text-4xl mt-3 md:text-[80px] capitalize mr-5'>php/laravel</h1>
+
+                    <Image src="/images/asterisk.svg" alt='asterick' width={30} height={30} className='mt-5 mr-5' />
+                </Marquee>
             </div>
         </>
     )
