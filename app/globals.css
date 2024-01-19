@@ -21,5 +21,20 @@ body {
   font-family: "moglan", sans-serif !important;
   background-color: #FAFAFA !important;
   cursor: default;
+  overflow-x: hidden;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.asterick {
+  animation: spin 2s linear infinite; 
 }
 

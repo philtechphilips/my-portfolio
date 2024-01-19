@@ -1,29 +1,27 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import Footer from '@/components/Footer'
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Footer from '@/components/Footer';
 import 'gsap/dist/gsap';
 import 'gsap/dist/ScrollTrigger';
 import 'remixicon/fonts/remixicon.css';
-import dynamic from 'next/dynamic'
- 
-const Navbar = dynamic(() => import('../components/Navbar'), { ssr: false })
+import dynamic from 'next/dynamic';
 
-// Your component code here
+const Navbar = dynamic(() => import('../components/Navbar'), { ssr: false });
 
-
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Isola Pelumi • Software Engineer',
   description: 'Software Engineer',
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -32,5 +30,5 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
-  )
+  );
 }
