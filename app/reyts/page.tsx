@@ -7,7 +7,7 @@ const page = () => {
     <div className='px-10 flex flex-col items-center py-10 mb-64'>
       <h1 className='text-5xl font-semibold' data-aos="zoom-in"
         data-aos-easing="ease-in-out" data-aos-duration="100">Reyts Fintech</h1>
-      <ul className='flex flex-wrap items-center justify-center list-none md:gap-3 mt-2'>
+      <ul className='flex flex-wrap items-center justify-center list-none gap-3 mt-2'>
         <li className='font-[Gt]' data-aos="zoom-in"
           data-aos-easing="ease-in-out" data-aos-delay="50" data-aos-duration="800">React Js</li>
         <li className='font-[Gt]' data-aos="zoom-in"
