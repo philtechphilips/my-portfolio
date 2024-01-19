@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import 'gsap/dist/gsap';
 import 'gsap/dist/ScrollTrigger';
 import 'remixicon/fonts/remixicon.css';
+import dynamic from 'next/dynamic'
+ 
+const Navbar = dynamic(() => import('../components/Navbar'), { ssr: false })
 
 // Your component code here
 
