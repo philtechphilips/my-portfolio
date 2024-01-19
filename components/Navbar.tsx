@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import gsap, { Expo } from 'gsap';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isMenuHovered, setIsMenuHovered] = useState(false);
@@ -28,7 +29,9 @@ const Navbar = () => {
       <h1 id="title" className='text-black text-[12px] font-[100] font-[GT]'>In.</h1>
       <h1 id="title" className='text-black text-[12px] font-[100] font-[GT]'>Tw.</h1>
       </div>
-      <h1 id="title" className='text-black text-[12px] font-[100] font-[GT] uppercase tracking-[0.18em]'>I s o l a &nbsp;P e l u m i</h1>
+      <Link href="/">
+        <h1 id="title" className='text-black text-[12px] font-[100] font-[GT] uppercase tracking-[0.18em]'>I s o l a &nbsp;P e l u m i</h1>
+      </Link>
       <h1 id="title" className='text-black text-[12px] font-[100] font-[GT] uppercase tracking-[0.18em]'>21:00PM</h1>
     </div>
   )

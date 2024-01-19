@@ -23,19 +23,3 @@ body {
   cursor: default;
 }
 
-.follow-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background-color: #222;
-  border-radius: 50%;
-  transition: 0.1s;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-.follow-cursor.hovered {
-  background-color: #fff; 
-  transform: scale(4);
-  mix-blend-mode: difference;
-}

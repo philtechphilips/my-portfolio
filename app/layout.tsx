@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import 'gsap/dist/gsap';
 import 'gsap/dist/ScrollTrigger';
+import 'remixicon/fonts/remixicon.css';
 
 // Your component code here
 
