@@ -1,5 +1,6 @@
 "use client"
 import AboutMe from '@/components/Home/AboutMe';
+import ConatctMe from '@/components/Home/ConatctMe';
 import JobExperience from '@/components/Home/JobExperience';
 import RecentProject from '@/components/Home/RecentProject';
 import { useEffect, useState } from 'react';
@@ -28,6 +29,7 @@ export default function Home() {
       <AboutMe changeCursor={toggleCursorStyles} />
       <RecentProject />
       <JobExperience />
+      <ConatctMe />
       <div  className={`follow-cursor ${isHovered ? 'hovered' : ''}`} style={{ left: position.x, top: position.y }}></div>
     </>
   )
