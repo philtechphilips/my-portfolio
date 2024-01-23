@@ -14,8 +14,8 @@ const ConatctMe = () => {
                         <div className='flex items-center justify-between'>
                             <Link href="mailto:pelumiisola87@gmail.com" className='uppercase  text-2xl  md:text-4xl font-sans' data-aos="fade-up"
                                 data-aos-easing="ease-in-out" data-aos-delay="100" data-aos-duration="800">Gmail</Link>
-                            <h5 className=' text-xs md:text-sm text-right uppercase font-[Gt]' data-aos="fade-left"
-                                data-aos-easing="ease-in-out" data-aos-delay="200" data-aos-duration="800">Download Resume</h5>
+                            <Link href="/Isola Pelumi CV.pdf" download className=' text-xs md:text-sm text-right uppercase font-[Gt]' data-aos="fade-left"
+                                data-aos-easing="ease-in-out" data-aos-delay="200" data-aos-duration="800">Download Resume</Link>
                         </div>
 
                         <div className='flex items-center justify-between'>
