@@ -9,6 +9,9 @@ const JobExperience = () => {
                         <h5 className='uppercase text-lg font-[Gt]' data-aos="fade-left"
                             data-aos-easing="ease-in-out" data-aos-duration="800">/job experience</h5>
                     </div>
+                    <div className='w-full flex'>
+
+                    </div>
                     <div className='w-full md:w-3/4 flex flex-col gap-7'>
                         <div className='flex items-center justify-between'>
                             <p className='uppercase  text-2xl  md:text-4xl font-sans' data-aos="fade-up"
