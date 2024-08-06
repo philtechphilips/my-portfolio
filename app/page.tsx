@@ -27,8 +27,8 @@ export default function Home() {
   return (
     <>
       <AboutMe changeCursor={toggleCursorStyles} />
-      <RecentProject />
       <JobExperience />
+      <RecentProject />
       <ConatctMe />
       <div  className={`follow-cursor ${isHovered ? 'hovered' : ''}`} style={{ left: position.x, top: position.y }}></div>
     </>

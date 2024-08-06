@@ -10,15 +10,32 @@
   font-style: normal;
 }
 
-
 @font-face {
   font-family: 'GT';
   src: url('../public/fonts/GT-Haptik-Regular.woff') format('woff');
   font-weight: 100 !important;
 }
 
+@font-face {
+  font-family: 'Sathoshi';
+  src: url('../public/fonts/Satoshi-Regular.otf') format('opentype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Monument';
+  src: url('../public/fonts/MonumentExtended-Ultrabold.otf') format('opentype');
+  font-weight: 700 !important;
+}
+
+@font-face {
+  font-family: 'Monument-R';
+  src: url('../public/fonts/MonumentExtended-Regular.otf') format('opentype');
+  font-weight: 700 !important;
+}
+
 body {
-  font-family: "moglan", sans-serif !important;
+  font-family: "Sathoshi", sans-serif !important;
   background-color: #FAFAFA !important;
   cursor: default;
   overflow-x: hidden;

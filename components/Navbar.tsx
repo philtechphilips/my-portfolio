@@ -32,17 +32,14 @@ const Navbar: React.FC = () => {
   const formattedTime: string = `${hours}:${formattedMinutes}:${formattedSeconds}${period}`;
 
   return (
-    <div className='w-full px-5 py-7 flex justify-between items-center'>
-      <div className='hidden md:flex gap-5 justify-center'>
-        <Link href="https://github.com/philtechphilips" className='text-black text-[12px] font-[100] font-[GT]' data-aos="fade-up">Gh.</Link>
-        <Link href="https://www.linkedin.com/in/isola-pelumi-84661821a/" className='text-black text-[12px] font-[100] font-[GT]' data-aos="fade-up" data-aos-delay="50">Ln.</Link>
-        <Link href="https://www.instagram.com/philipstheprogrammer/" className='text-black text-[12px] font-[100] font-[GT]' data-aos="fade-up" data-aos-delay="100">In.</Link>
-        <Link href="https://twitter.com/philipsdcoda" className='text-black text-[12px] font-[100] font-[GT]' data-aos="fade-up" data-aos-delay="150">Tw.</Link>
+    <div className='w-full md:px-24 px-5 py-7 flex justify-between items-center'>
+      <div className='md:flex md:gap-5 gap-3 w-full'>
+        <Link href="https://github.com/philtechphilips" className='text-white text-[12px] font-[100] ' data-aos="fade-up">Gh.</Link>
+        <Link href="https://www.linkedin.com/in/isola-pelumi-84661821a/" className='text-white text-[12px] font-[100] ' data-aos="fade-up" data-aos-delay="50">Ln.</Link>
+        <Link href="https://www.instagram.com/philipstheprogrammer/" className='text-white text-[12px] font-[100] ' data-aos="fade-up" data-aos-delay="100">In.</Link>
+        <Link href="https://twitter.com/philipsdcoda" className='text-white text-[12px] font-[100] ' data-aos="fade-up" data-aos-delay="150">Tw.</Link>
       </div>
-      <Link href="/">
-        <h1 className='text-black text-[12px] font-[100] font-[GT] uppercase tracking-[0.18em]' data-aos="fade-up">I s o l a &nbsp;P e l u m i</h1>
-      </Link>
-      <div id="current-time" className='text-black text-[12px] font-[100] font-[GT] uppercase tracking-[0.18em]' data-aos="fade-up">{formattedTime}</div>
+      <div id="current-time" className='text-white text-[12px] font-[100]  uppercase tracking-[0.18em]' data-aos="fade-up">{formattedTime}</div>
     </div>
   );
 };
