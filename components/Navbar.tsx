@@ -33,13 +33,15 @@ const Navbar: React.FC = () => {
 
   return (
     <div className='w-full md:px-24 px-5 py-7 flex justify-between items-center'>
-      <div className='md:flex md:gap-5 gap-3 w-full'>
-        <Link href="https://github.com/philtechphilips" className='text-white text-[12px] font-[100] ' data-aos="fade-up">Gh.</Link>
-        <Link href="https://www.linkedin.com/in/isola-pelumi-84661821a/" className='text-white text-[12px] font-[100] ' data-aos="fade-up" data-aos-delay="50">Ln.</Link>
-        <Link href="https://www.instagram.com/philipstheprogrammer/" className='text-white text-[12px] font-[100] ' data-aos="fade-up" data-aos-delay="100">In.</Link>
-        <Link href="https://twitter.com/philipsdcoda" className='text-white text-[12px] font-[100] ' data-aos="fade-up" data-aos-delay="150">Tw.</Link>
+      <div className=' w-full'>
+        <h1 className='font-bold font-[Monument-R] text-sm '>Pelumi</h1>
+        <h1 className='font-bold font-[Monument-R] text-sm '>Isola</h1>
+        {/* <Link href="https://github.com/philtechphilips" className='text-[#232121] text-[12px] font-[100] ' data-aos="fade-up">Gh.</Link>
+        <Link href="https://www.linkedin.com/in/isola-pelumi-84661821a/" className='text-[#232121] text-[12px] font-[100] ' data-aos="fade-up" data-aos-delay="50">Ln.</Link>
+        <Link href="https://www.instagram.com/philipstheprogrammer/" className='text-[#232121] text-[12px] font-[100] ' data-aos="fade-up" data-aos-delay="100">In.</Link>
+        <Link href="https://twitter.com/philipsdcoda" className='text-[#232121] text-[12px] font-[100] ' data-aos="fade-up" data-aos-delay="150">Tw.</Link> */}
       </div>
-      <div id="current-time" className='text-white text-[12px] font-[100]  uppercase tracking-[0.18em]' data-aos="fade-up">{formattedTime}</div>
+      <div id="current-time" className='text-[#232121] text-[12px] font-[100]  uppercase tracking-[0.18em]' data-aos="fade-up">{formattedTime}</div>
     </div>
   );
 };

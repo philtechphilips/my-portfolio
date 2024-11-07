@@ -40,18 +40,20 @@ body {
   cursor: default;
   overflow-x: hidden;
 }
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+/* Up and down animation */
+@keyframes upDown {
+  0% {
+    transform: translateY(0);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateY(-10px); /* Adjust the distance */
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
-
-.asterick {
-  animation: spin 2s linear infinite; 
+/* Apply the up and down animation */
+.animate-up-down {
+  animation: upDown 1.5s ease-in-out infinite;
 }
-
