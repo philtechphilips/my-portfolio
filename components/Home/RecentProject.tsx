@@ -38,6 +38,7 @@ const RecentProject = () => {
               HTML | CSS | REEACT JS | LARAVEL | MYSQL
             </p>
             <p className="text-sm text-gray-600 pb-[6px]">2021 - Contract</p>
+            <Link href="https://www.agapebaptistcollege.com.ng/" target="_blank" className="text-sm text-gray-800 pb-[6px]">View Project <i className="ri-arrow-drop-right-line"></i></Link>
           </div>
 
           <div className="mt-10 px-5">
@@ -88,6 +89,7 @@ const RecentProject = () => {
               REACT JS | Node JS/Express | Redis | Mongo DB | Postman
             </p>
             <p className="text-sm text-gray-600 pb-[6px]">2023</p>
+            <Link href="https://reyts.com/" target="_blank" className="text-sm text-gray-800 pb-[6px]">View Project <i className="ri-arrow-drop-right-line"></i></Link>
           </div>
 
           <div className="mt-10 px-5">
@@ -132,6 +134,7 @@ const RecentProject = () => {
               Node JS/Express | Mongo DB | Postman | API
             </p>
             <p className="text-sm text-gray-600 pb-[6px]">2023 - 2024</p>
+            <Link href="https://firacard.com/" target="_blank" className="text-sm text-gray-800 pb-[6px]">View Project <i className="ri-arrow-drop-right-line"></i></Link>
           </div>
 
           <div className="mt-10 px-5">
@@ -171,6 +174,7 @@ const RecentProject = () => {
               HTML | CSS | JavaScript | React Js | Figma
             </p>
             <p className="text-sm text-gray-600 pb-[6px]">2023</p>
+            <Link href="https://ritapersonaldata.com/" target="_blank" className="text-sm text-gray-800 pb-[6px]">View Project <i className="ri-arrow-drop-right-line"></i></Link>
           </div>
 
           <div className="mt-10 px-5">
@@ -210,6 +214,7 @@ const RecentProject = () => {
               HTML | CSS | JavaScript | Laravel | Figma
             </p>
             <p className="text-sm text-gray-600 pb-[6px]">2024</p>
+            <Link href="https://notarypublicoshawa.com/" target="_blank" className="text-sm text-gray-800 pb-[6px]">View Project <i className="ri-arrow-drop-right-line"></i></Link>
           </div>
 
           <div className="mt-10 px-5">

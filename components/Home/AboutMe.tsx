@@ -11,9 +11,9 @@ const AboutMe = ({ changeCursor }: any) => {
   }, []);
   return (
     <>
-      <div className="w-full flex md:flex-row flex-col items-center justify-center gap-16 mb-24 h-screen mt-20 py-10 md:px-20 px-5">
+      <div className="w-full flex md:flex-row flex-col md:items-center md:justify-center gap-16 mb-24 md:h-screen mt-20 md:py-10 md:px-20 px-5">
         <div className="md:w-3/5">
-          <div className="flex justify-end  mb-4">
+          <div className="flex md:justify-end  mb-4">
             <div className="md:px-5 w-fit my-4 2xl:mr-24 ">
               <p className="px-5 text-sm font-semibold border rounded-full text-[#656464] py-1">
                 Security Inclined
@@ -21,7 +21,7 @@ const AboutMe = ({ changeCursor }: any) => {
             </div>
           </div>
           <h1
-            className="uppercase text-5xl text-[#232121] md:text-7xl md:px-5 font-[Monument-R] font-bold translate-y-4 mb-5"
+            className="uppercase text-4xl text-[#232121] md:text-7xl md:px-5 font-[Monument-R] font-bold translate-y-4 mb-5"
             style={{ letterSpacing: "4px", transform: "scaleY(1.4)" }}
           >
             Software Engineer
