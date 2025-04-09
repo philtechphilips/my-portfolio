@@ -36,11 +36,11 @@ const AboutMe = ({ changeCursor }: any) => {
 
           <div className=" md:px-5 py-6 flex md:flex-row flex-col gap-5">
             <p className="text-sm text-[#656464]">
-              I’m a security-focused software engineer with over 4 years of
-              hands-on experience, specializing in PHP, Laravel, JavaScript,
-              TypeScript, React.js, and Node.js. I thrive on turning ideas into
-              reality by seamlessly integrating front-end and back-end
-              solutions.
+              I’m a security-focused software engineer with over 5 years of
+              hands-on experience, specializing in building secure and scalable
+              applications using PHP, Laravel, JavaScript, TypeScript, React.js/Next.js,
+              and Node.js/NestJs. I thrive on turning ideas into reality by seamlessly
+              integrating front-end and back-end solutions.
             </p>
 
             <p className="text-sm text-[#656464]">
@@ -49,6 +49,10 @@ const AboutMe = ({ changeCursor }: any) => {
               learning and collaboration, I’m passionate about exploring
               emerging technologies to create impactful solutions.
             </p>
+          </div>
+
+            <div className="md:px-5 py-2 flex md:flex-row flex-col gap-5">
+            <a href="https://drive.google.com/file/d/1hZ9TseY942-gNlnTZSauORv98aIhQZKh/view?usp=sharing" target="_blank" className="text-sm text-gray-800 pb-[6px]">View Resume <i className="ri-arrow-drop-right-line"></i></a>
           </div>
         </div>
         <div className="md:w-2/5">
