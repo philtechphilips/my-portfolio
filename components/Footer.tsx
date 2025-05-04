@@ -22,7 +22,7 @@ const Footer = () => {
             E-mail
           </Link>
           <Link
-            href="https://www.linkedin.com/in/isola-pelumi-84661821a/"
+            href="https://www.linkedin.com/in/pelumi-isola-84661821a"
             className="text-xl font-[Gt]"
           >
             Linkedin

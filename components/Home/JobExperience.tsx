@@ -14,6 +14,33 @@ const JobExperience = () => {
 
       <div className="px-5">
         <div className="border-b py-5 mt-10">
+          <h2 className="mb-4 text-4xl font-bold">Paxform</h2>
+          <p className="text-xl text-gray-600 pb-[6px]">
+            Senior Software Engineer - Remote
+          </p>
+          <p className="text-xl text-gray-600 pb-[6px]">Contract</p>
+        </div>
+
+        <div className="mt-10 px-5">
+          <ul className="list-disc flex flex-col gap-5">
+            <li className="text-xl text-gray-600 pb-[6px]">
+            Integrated multiple third-party APIs across diverse domains including CRM, storage, accounting, payment, and identity verification. Successfully integrated Zoho CRM for customer relationship management, Stripe for payments and identity verification (Stripe Identity), and various cloud storage solutions such as Google Drive, Microsoft OneDrive, and Dropbox. Also worked with accounting platforms like Xero, and legal/document management systems such as Smokeball and FYI.
+            </li>
+            <li className="text-xl text-gray-600 pb-[6px]">
+            Developed custom email templates that allow publishers to personalize the content of their emails. The templates were designed with flexibility in mind, enabling dynamic content customization while ensuring compatibility across various email clients. This solution empowered publishers to deliver tailored communications to their audiences.
+            </li>
+            <li className="text-xl text-gray-600 pb-[6px]">
+            Provided code reviews and contributed to maintaining code quality within the team. Oversaw the deployment process to the server using GitLab, ensuring smooth CI/CD pipelines. Actively enforced adherence to best practices by ensuring that developers followed the proper merge request process, maintaining consistency and efficiency across the development workflow.
+            </li>
+            <li className="text-xl text-gray-600 pb-[6px]">
+            Contributed to the V2 redesign of the publisher dashboard, ensuring a seamless and intuitive user experience. Addressed and resolved all pending bugs, meticulously handling necessary checks and implementing proper state management within the application to ensure stability and performance.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="px-5">
+        <div className="border-b py-5 mt-10">
           <h2 className="mb-4 text-4xl font-bold">AB-Inbev</h2>
           <p className="text-xl text-gray-600 pb-[6px]">
             Backend Developer - Remote
