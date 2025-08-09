@@ -24,16 +24,37 @@ const JobExperience = () => {
         <div className="mt-10 px-5">
           <ul className="list-disc flex flex-col gap-5">
             <li className="text-xl text-gray-600 pb-[6px]">
-            Integrated multiple third-party APIs across diverse domains including CRM, storage, accounting, payment, and identity verification. Successfully integrated Zoho CRM for customer relationship management, Stripe for payments and identity verification (Stripe Identity), and various cloud storage solutions such as Google Drive, Microsoft OneDrive, and Dropbox. Also worked with accounting platforms like Xero, and legal/document management systems such as Smokeball and FYI.
+              Integrated multiple third-party APIs across diverse domains
+              including CRM, storage, accounting, payment, and identity
+              verification. Successfully integrated Zoho CRM for customer
+              relationship management, Stripe for payments and identity
+              verification (Stripe Identity), and various cloud storage
+              solutions such as Google Drive, Microsoft OneDrive, and Dropbox.
+              Also worked with accounting platforms like Xero, and
+              legal/document management systems such as Smokeball and FYI.
             </li>
             <li className="text-xl text-gray-600 pb-[6px]">
-            Developed custom email templates that allow publishers to personalize the content of their emails. The templates were designed with flexibility in mind, enabling dynamic content customization while ensuring compatibility across various email clients. This solution empowered publishers to deliver tailored communications to their audiences.
+              Developed custom email templates that allow publishers to
+              personalize the content of their emails. The templates were
+              designed with flexibility in mind, enabling dynamic content
+              customization while ensuring compatibility across various email
+              clients. This solution empowered publishers to deliver tailored
+              communications to their audiences.
             </li>
             <li className="text-xl text-gray-600 pb-[6px]">
-            Provided code reviews and contributed to maintaining code quality within the team. Oversaw the deployment process to the server using GitLab, ensuring smooth CI/CD pipelines. Actively enforced adherence to best practices by ensuring that developers followed the proper merge request process, maintaining consistency and efficiency across the development workflow.
+              Provided code reviews and contributed to maintaining code quality
+              within the team. Oversaw the deployment process to the server
+              using GitLab, ensuring smooth CI/CD pipelines. Actively enforced
+              adherence to best practices by ensuring that developers followed
+              the proper merge request process, maintaining consistency and
+              efficiency across the development workflow.
             </li>
             <li className="text-xl text-gray-600 pb-[6px]">
-            Contributed to the V2 redesign of the publisher dashboard, ensuring a seamless and intuitive user experience. Addressed and resolved all pending bugs, meticulously handling necessary checks and implementing proper state management within the application to ensure stability and performance.
+              Contributed to the V2 redesign of the publisher dashboard,
+              ensuring a seamless and intuitive user experience. Addressed and
+              resolved all pending bugs, meticulously handling necessary checks
+              and implementing proper state management within the application to
+              ensure stability and performance.
             </li>
           </ul>
         </div>
@@ -82,11 +103,13 @@ const JobExperience = () => {
 
       <div className="px-5">
         <div className="border-b py-5 mt-10">
-          <h2 className="mb-4 text-4xl font-bold">Xttreme Developers</h2>
+          <h2 className="mb-4 text-4xl font-bold">Playa Music</h2>
           <p className="text-xl text-gray-600 pb-[6px]">
-            Full-Stack Developer - Remote
+            Software ENgineer - Remote
           </p>
-          <p className="text-xl text-gray-600 pb-[6px]">June 2022 - Present</p>
+          <p className="text-xl text-gray-600 pb-[6px]">
+            July 2023 - March 2024
+          </p>
         </div>
 
         <div className="mt-10 px-5">
@@ -123,28 +146,42 @@ const JobExperience = () => {
 
       <div className="px-5">
         <div className="border-b py-5 mt-10">
-          <h2 className="mb-4 text-4xl font-bold">Loban Genius School</h2>
+          <h2 className="mb-4 text-4xl font-bold">Xttreme Developers</h2>
           <p className="text-xl text-gray-600 pb-[6px]">
-            Information Technology Tutor - Part time
+            Full-Stack Developer - Remote
           </p>
-          <p className="text-xl text-gray-600 pb-[6px]">Oct 2021 - Jun 2022</p>
+          <p className="text-xl text-gray-600 pb-[6px]">
+            June 2020 - July 2023
+          </p>
         </div>
 
         <div className="mt-10 px-5">
           <ul className="list-disc flex flex-col gap-5">
             <li className="text-xl text-gray-600 pb-[6px]">
-              I was responsible for managing the school IT gadgets.
+              I was responsible for rebuilding the company website and deploying
+              it.
             </li>
             <li className="text-xl text-gray-600 pb-[6px]">
-              I took on the responsibility of introducing students to technical
-              skills, graphic design, and programming (Python, HTML/CSS).
+              I was responsible for developing company's web application based
+              on a Figma design. It involved using HTML, CSS, JavaScript,
+              Php/Laravel. The application includes a contact form and an
+              administrator panel to update specific sections of the website.
             </li>
             <li className="text-xl text-gray-600 pb-[6px]">
-              I enhanced the school's technical capabilities by training the
-              teachers on how to use computers and Excel sheets. This training
-              empowered them with essential digital skills, improving their
-              efficiency and effectiveness in administrative and educational
-              tasks.
+              I was responsible for creating unit and integration tests for a
+              payroll solution developed with Node.js and Express.
+            </li>
+            <li className="text-xl text-gray-600 pb-[6px]">
+              I was responsible for adding new features to a P2P currency
+              exchange app using Redis, NodeJs, Express, MongoDB.
+            </li>
+            <li className="text-xl text-gray-600 pb-[6px]">
+              Built the v2 of a Peer 2 Peer currency exchange application -
+              Reyts Fintech
+            </li>
+            <li className="text-xl text-gray-600 pb-[6px]">
+              Implemented security scan on projects using CI/CD - Azure Repo,
+              Gitlab and Github
             </li>
           </ul>
         </div>
