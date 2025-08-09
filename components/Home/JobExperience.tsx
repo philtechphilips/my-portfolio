@@ -105,7 +105,7 @@ const JobExperience = () => {
         <div className="border-b py-5 mt-10">
           <h2 className="mb-4 text-4xl font-bold">Playa Music</h2>
           <p className="text-xl text-gray-600 pb-[6px]">
-            Software ENgineer - Remote
+            Software Engineer - Remote
           </p>
           <p className="text-xl text-gray-600 pb-[6px]">
             July 2023 - March 2024
@@ -115,30 +115,19 @@ const JobExperience = () => {
         <div className="mt-10 px-5">
           <ul className="list-disc flex flex-col gap-5">
             <li className="text-xl text-gray-600 pb-[6px]">
-              I was responsible for rebuilding the company website and deploying
-              it.
+              I integrated multiple AI models to create a dynamic system that
+              generates personalized playlists and compositions. By leveraging
+              different models for music recommendation, style analysis, and
+              composition generation, the system intelligently curates and
+              creates music content tailored to the user's preferences and
+              moods.
             </li>
             <li className="text-xl text-gray-600 pb-[6px]">
-              I was responsible for developing company's web application based
-              on a Figma design. It involved using HTML, CSS, JavaScript,
-              Php/Laravel. The application includes a contact form and an
-              administrator panel to update specific sections of the website.
+              I built the APIs to efficiently store and retrieve data, enhancing
+              the functionality and performance of the application.
             </li>
             <li className="text-xl text-gray-600 pb-[6px]">
-              I was responsible for creating unit and integration tests for a
-              payroll solution developed with Node.js and Express.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I was responsible for adding new features to a P2P currency
-              exchange app using Redis, NodeJs, Express, MongoDB.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              Built the v2 of a Peer 2 Peer currency exchange application -
-              Reyts Fintech
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              Implemented security scan on projects using CI/CD - Azure Repo,
-              Gitlab and Github
+              Utilized NodeJs, MongoDB, Postman, and Typescript.
             </li>
           </ul>
         </div>
