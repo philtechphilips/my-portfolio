@@ -1,216 +1,168 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
+import AOS from 'aos';
 
 const JobExperience = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      once: true,
+    });
+  }, []);
+
+  const experiences = [
+    {
+      company: 'Paxform',
+      role: 'Senior Software Engineer',
+      type: 'Contract',
+      location: 'Remote',
+      period: '2024 - Present',
+      achievements: [
+        'Integrated multiple third-party APIs including Zoho CRM, Stripe, Google Drive, Microsoft OneDrive, Dropbox, Xero, Smokeball and FYI',
+        'Developed custom email templates with dynamic customization and cross-client compatibility',
+        'Led code reviews and maintained quality standards using GitLab CI/CD pipelines',
+        'Contributed to V2 dashboard redesign with improved state management and performance',
+      ],
+    },
+    {
+      company: 'AB-InBev',
+      role: 'Backend Developer',
+      type: 'Full-time',
+      location: 'Remote',
+      period: 'Mar 2024 - Present',
+      achievements: [
+        'Collaborated on smart safety application bug fixes, enhancing reliability across Africa',
+        'Successfully launched application organization-wide throughout the continent',
+        'Migrated queuing system from Redis/Bull to Azure Service Bus for better scalability',
+        'Wrote comprehensive technical documentation published on Confluence',
+      ],
+    },
+    {
+      company: 'Playa Music',
+      role: 'Software Engineer',
+      type: 'Full-time',
+      location: 'Remote',
+      period: 'Jul 2023 - Mar 2024',
+      achievements: [
+        'Integrated multiple AI models for personalized playlist and composition generation',
+        'Built efficient APIs for data storage and retrieval using Node.js and MongoDB',
+        'Implemented music recommendation and style analysis features',
+      ],
+    },
+    {
+      company: 'Xttreme Developers',
+      role: 'Full-Stack Developer',
+      type: 'Full-time',
+      location: 'Remote',
+      period: 'Jun 2020 - Jul 2023',
+      achievements: [
+        'Rebuilt company website with modern features and improved UX',
+        'Developed web applications from Figma designs using Laravel and React',
+        'Built Reyts Fintech P2P exchange with Redis, Node.js, and MongoDB',
+        'Implemented security scans using CI/CD with Azure, GitLab, and GitHub',
+      ],
+    },
+    {
+      company: 'Philtech',
+      role: 'Full-Stack Developer',
+      type: 'Freelance',
+      location: 'Remote',
+      period: 'Apr 2020 - Oct 2022',
+      achievements: [
+        'Built full-stack school portal application (v1 & v2) using Laravel and Bootstrap',
+        'Developed learning management system for bible school',
+        'Managed domain hosting, deployment, and SEO optimization',
+      ],
+    },
+  ];
+
   return (
-    <div className="w-full md:px-20 mt-24">
-      <div className="px-5">
-        <h1
-          className="font-[Monument-R] md:text-6xl text-3xl"
-          style={{ letterSpacing: "4px", transform: "scaleY(1.2)" }}
-        >
-          Job Experience
-        </h1>
-      </div>
-
-      <div className="px-5">
-        <div className="border-b py-5 mt-10">
-          <h2 className="mb-4 text-4xl font-bold">Paxform</h2>
-          <p className="text-xl text-gray-600 pb-[6px]">
-            Senior Software Engineer - Remote
+    <section id="experience" className="w-full md:px-20 py-20 px-5 bg-neutral-light bg-opacity-5 dark:bg-neutral-dark dark:bg-opacity-5">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-16" data-aos="fade-up">
+          <h1
+            className="font-[Monument-R] md:text-6xl text-3xl mb-6"
+            style={{ letterSpacing: "4px", transform: "scaleY(1.2)" }}
+          >
+            WORK EXPERIENCE
+          </h1>
+          <p className="text-sm text-[#656464] dark:text-neutral-light md:w-2/3">
+            Professional journey building impactful solutions across fintech, enterprise, and creative industries
           </p>
-          <p className="text-xl text-gray-600 pb-[6px]">Contract</p>
         </div>
 
-        <div className="mt-10 px-5">
-          <ul className="list-disc flex flex-col gap-5">
-            <li className="text-xl text-gray-600 pb-[6px]">
-              Integrated multiple third-party APIs across diverse domains
-              including CRM, storage, accounting, payment, and identity
-              verification. Successfully integrated Zoho CRM for customer
-              relationship management, Stripe for payments and identity
-              verification (Stripe Identity), and various cloud storage
-              solutions such as Google Drive, Microsoft OneDrive, and Dropbox.
-              Also worked with accounting platforms like Xero, and
-              legal/document management systems such as Smokeball and FYI.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              Developed custom email templates that allow publishers to
-              personalize the content of their emails. The templates were
-              designed with flexibility in mind, enabling dynamic content
-              customization while ensuring compatibility across various email
-              clients. This solution empowered publishers to deliver tailored
-              communications to their audiences.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              Provided code reviews and contributed to maintaining code quality
-              within the team. Oversaw the deployment process to the server
-              using GitLab, ensuring smooth CI/CD pipelines. Actively enforced
-              adherence to best practices by ensuring that developers followed
-              the proper merge request process, maintaining consistency and
-              efficiency across the development workflow.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              Contributed to the V2 redesign of the publisher dashboard,
-              ensuring a seamless and intuitive user experience. Addressed and
-              resolved all pending bugs, meticulously handling necessary checks
-              and implementing proper state management within the application to
-              ensure stability and performance.
-            </li>
-          </ul>
-        </div>
-      </div>
+        {/* Timeline */}
+        <div className="space-y-0">
+          {experiences.map((exp, index) => (
+            <div
+              key={index}
+              className="relative border-l-2 border-gray-200 dark:border-neutral-dark pl-8 md:pl-12 pb-12 last:pb-0"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              {/* Timeline Dot */}
+              <div className="absolute -left-[9px] top-0 w-4 h-4 bg-gray-800 dark:bg-neutral-light border-2 border-background-light dark:border-background-dark"></div>
 
-      <div className="px-5">
-        <div className="border-b py-5 mt-10">
-          <h2 className="mb-4 text-4xl font-bold">AB-Inbev</h2>
-          <p className="text-xl text-gray-600 pb-[6px]">
-            Backend Developer - Remote
+              {/* Content */}
+              <div className="space-y-4">
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                  <div>
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <h3 className="text-2xl md:text-3xl font-bold">{exp.company}</h3>
+                      <span className="text-xs px-3 py-1 border border-gray-300 dark:border-neutral-dark rounded-full text-[#656464] dark:text-neutral-light">
+                        {exp.type}
+                      </span>
+                    </div>
+                    <p className="text-base font-semibold text-[#656464] dark:text-neutral-light mb-1">
+                      {exp.role}
+                    </p>
+                    <div className="flex items-center gap-4 text-sm text-[#656464] dark:text-neutral-light">
+                      <span className="flex items-center gap-1">
+                        <i className="ri-map-pin-line text-xs"></i>
+                        {exp.location}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Period */}
+                  <div className="text-sm font-semibold text-[#656464] dark:text-neutral-light whitespace-nowrap">
+                    {exp.period}
+                  </div>
+                </div>
+
+                {/* Achievements */}
+                <ul className="space-y-3 pt-2">
+                  {exp.achievements.map((achievement, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-[#656464] dark:text-neutral-light leading-relaxed">
+                      <span className="mt-1.5 w-1.5 h-1.5 bg-gray-800 dark:bg-neutral-light flex-shrink-0"></span>
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Footer Note */}
+        <div className="mt-16 pt-12 border-t border-gray-200 dark:border-neutral-dark text-center" data-aos="fade-up">
+          <p className="text-sm text-[#656464] dark:text-neutral-light">
+            Want to know more about my experience?{' '}
+            <a 
+              href="https://drive.google.com/file/d/1hZ9TseY942-gNlnTZSauORv98aIhQZKh/view?usp=sharing" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold underline hover:text-[#232121] dark:hover:text-background-light transition-colors"
+            >
+              View my full resume
+            </a>
           </p>
-          <p className="text-xl text-gray-600 pb-[6px]">March 2024 - Present</p>
-        </div>
-
-        <div className="mt-10 px-5">
-          <ul className="list-disc flex flex-col gap-5">
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I collaborated with fellow backend engineers to identify and
-              resolve multiple bugs in our organization's smart safety
-              application. This teamwork enhanced the application's reliability
-              and performance, contributing to a safer and more efficient user
-              experience.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I worked with the team that successfully launched our smart safety
-              application across the organization throughout Africa. This
-              rollout expanded our reach and ensured a safer environment for
-              users across the continent.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I migrated our queuing system from Redis and Bull to Azure Service
-              Bus, significantly enhancing the reliability and efficiency of our
-              queue management. This transition improved the overall performance
-              and scalability of our system.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I wrote comprehensive technical documentation for the
-              application's backend and published it on the organization's
-              Confluence page. This documentation provides clear guidance and
-              insights, facilitating better understanding and maintenance of the
-              backend systems for current and future team members.
-            </li>
-          </ul>
         </div>
       </div>
-
-      <div className="px-5">
-        <div className="border-b py-5 mt-10">
-          <h2 className="mb-4 text-4xl font-bold">Playa Music</h2>
-          <p className="text-xl text-gray-600 pb-[6px]">
-            Software Engineer - Remote
-          </p>
-          <p className="text-xl text-gray-600 pb-[6px]">
-            July 2023 - March 2024
-          </p>
-        </div>
-
-        <div className="mt-10 px-5">
-          <ul className="list-disc flex flex-col gap-5">
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I integrated multiple AI models to create a dynamic system that
-              generates personalized playlists and compositions. By leveraging
-              different models for music recommendation, style analysis, and
-              composition generation, the system intelligently curates and
-              creates music content tailored to the user's preferences and
-              moods.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I built the APIs to efficiently store and retrieve data, enhancing
-              the functionality and performance of the application.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              Utilized NodeJs, MongoDB, Postman, and Typescript.
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="px-5">
-        <div className="border-b py-5 mt-10">
-          <h2 className="mb-4 text-4xl font-bold">Xttreme Developers</h2>
-          <p className="text-xl text-gray-600 pb-[6px]">
-            Full-Stack Developer - Remote
-          </p>
-          <p className="text-xl text-gray-600 pb-[6px]">
-            June 2020 - July 2023
-          </p>
-        </div>
-
-        <div className="mt-10 px-5">
-          <ul className="list-disc flex flex-col gap-5">
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I was responsible for rebuilding the company website and deploying
-              it.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I was responsible for developing company's web application based
-              on a Figma design. It involved using HTML, CSS, JavaScript,
-              Php/Laravel. The application includes a contact form and an
-              administrator panel to update specific sections of the website.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I was responsible for creating unit and integration tests for a
-              payroll solution developed with Node.js and Express.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I was responsible for adding new features to a P2P currency
-              exchange app using Redis, NodeJs, Express, MongoDB.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              Built the v2 of a Peer 2 Peer currency exchange application -
-              Reyts Fintech
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              Implemented security scan on projects using CI/CD - Azure Repo,
-              Gitlab and Github
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="px-5">
-        <div className="border-b py-5 mt-10">
-          <h2 className="mb-4 text-4xl font-bold">Philtech</h2>
-          <p className="text-xl text-gray-600 pb-[6px]">
-            Full-Stack Developer - Freelance
-          </p>
-          <p className="text-xl text-gray-600 pb-[6px]">Apr 2020 - Oct 2022</p>
-        </div>
-
-        <div className="mt-10 px-5">
-          <ul className="list-disc flex flex-col gap-5">
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I successfully crafted and implemented a cutting-edge full-stack
-              application secondary school portal application (v1 and v2) using
-              PHP, Laravel, Bootstrap, HTML, JavaScript, and jQuery.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              Passionate about creating seamless user experiences.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I leveraged my expertise in front-end and back-end technologies to
-              deliver efficient and user-friendly web solutions.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              I am responsible for purchasing domain, application hosting,
-              search engine optimization of the web applications done.
-            </li>
-            <li className="text-xl text-gray-600 pb-[6px]">
-              Built a learning management system for a bible school using
-              Laravel | HTML | CSS | Javascript/Jquery | Bootstrap.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,9 +1,13 @@
 "use client"
-import AboutMe from '@/components/Home/AboutMe';
-import ConatctMe from '@/components/Home/ConatctMe';
-import JobExperience from '@/components/Home/JobExperience';
-import RecentProject from '@/components/Home/RecentProject';
 import { useEffect, useState } from 'react';
+import HeroSection from '@/components/sections/HeroSection';
+import SkillsSection from '@/components/sections/SkillsSection';
+import JobExperience from '@/components/Home/JobExperience';
+import ProjectsSection from '@/components/sections/ProjectsSection';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import TwitterSection from '@/components/sections/TwitterSection';
+import LinkedInSection from '@/components/sections/LinkedInSection';
+import ContactSection from '@/components/sections/ContactSection';
 
 export default function Home() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -19,18 +23,26 @@ export default function Home() {
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []); 
+  }, []);
 
   const toggleCursorStyles = (hovered: boolean) => {
     setIsHovered(hovered);
   };
+
   return (
     <>
-      <AboutMe changeCursor={toggleCursorStyles} />
+      <HeroSection />
+      <SkillsSection />
       <JobExperience />
-      <RecentProject />
-      <ConatctMe />
-      <div  className={`follow-cursor ${isHovered ? 'hovered' : ''}`} style={{ left: position.x, top: position.y }}></div>
+      <ProjectsSection />
+      <TestimonialsSection />
+      <TwitterSection />
+      <LinkedInSection />
+      <ContactSection />
+      <div
+        className={`follow-cursor ${isHovered ? 'hovered' : ''}`}
+        style={{ left: position.x, top: position.y }}
+      ></div>
     </>
-  )
+  );
 }
