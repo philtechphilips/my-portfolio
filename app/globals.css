@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,26 +36,144 @@
   font-weight: 700 !important;
 }
 
-body {
-  font-family: "Sathoshi", sans-serif !important;
-  background-color: #FAFAFA !important;
-  cursor: default;
-  overflow-x: hidden;
-}
-/* Up and down animation */
-@keyframes upDown {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px); /* Adjust the distance */
-  }
-  100% {
-    transform: translateY(0);
-  }
+:root {
+  --primary: #1560BD;
+  --primary-light: #2D7DD6;
+  --primary-dark: #0E4A9A;
+  --secondary: #536878;
+  --accent: #4682b4;
+  --background: #FAFAFA;
+  --text-primary: #232121;
+  --text-secondary: #656464;
 }
 
-/* Apply the up and down animation */
-.animate-up-down {
-  animation: upDown 1.5s ease-in-out infinite;
+.dark {
+  --background: #1C2328;
+  --text-primary: #FAFAFA;
+  --text-secondary: #91A3B0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans 3', 'Sathoshi', sans-serif !important;
+  background-color: var(--background) !important;
+  color: var(--text-primary);
+  cursor: default;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-brand {
+  font-family: 'Monument-R', 'Monument', sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Custom cursor follower */
+.follow-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
+  z-index: 9999;
+}
+
+.follow-cursor.hovered {
+  width: 40px;
+  height: 40px;
+  border-color: var(--accent);
+}
+
+/* Animation classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(28, 35, 40, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Button styles */
+.btn {
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 ease-in-out;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-primary-dark hover:shadow-lg hover:scale-105;
+}
+
+.btn-secondary {
+  @apply border-2 border-primary text-primary hover:bg-primary hover:text-white hover:shadow-lg;
+}
+
+.dark .btn-secondary {
+  @apply border-primary-light text-primary-light hover:bg-primary-light hover:text-background-dark;
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center;
+}
+
+/* Input focus styles */
+input:focus, textarea:focus, select:focus {
+  @apply outline-none ring-2 ring-primary ring-opacity-50;
+}
+
+.dark input:focus, .dark textarea:focus, .dark select:focus {
+  @apply ring-primary-light;
 }
