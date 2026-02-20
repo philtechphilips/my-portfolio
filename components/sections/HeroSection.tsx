@@ -46,19 +46,19 @@ const HeroSection: React.FC = () => {
           {/* Main Heading - Creative Split */}
           <div className="space-y-8 md:space-y-12">
             <h1 
-              className="uppercase text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[160px] leading-[0.9] text-[#232121] dark:text-background-light font-[Monument-R] font-bold"
-              style={{ letterSpacing: "4px", transform: "scaleY(1.4)" }}
+              className="uppercase text-[2.75rem] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[160px] leading-[1.1] text-[#232121] dark:text-background-light font-[Monument-R] font-bold pt-2"
+              style={{ letterSpacing: "1px", transform: "scaleY(1.4)" }}
             >
               Software
             </h1>
             
-            <div className="flex items-center gap-6 md:gap-8">
-              <div className="w-16 h-16 md:w-20 md:h-20 border-2 border-gray-800 dark:border-neutral-light flex items-center justify-center flex-shrink-0">
-                <span className="text-2xl md:text-3xl font-bold font-[Monument-R]">+6</span>
+            <div className="flex items-center gap-4 md:gap-8">
+              <div className="w-14 h-14 md:w-20 md:h-20 border-2 border-gray-800 dark:border-neutral-light flex items-center justify-center flex-shrink-0">
+                <span className="text-xl md:text-3xl font-bold font-[Monument-R]">+6</span>
               </div>
               <h1 
-                className="uppercase text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[160px] leading-[0.9] text-[#232121] dark:text-background-light font-[Monument-R] font-bold"
-                style={{ letterSpacing: "4px", transform: "scaleY(1.4)" }}
+                className="uppercase text-[2.75rem] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[160px] leading-[1.1] text-[#232121] dark:text-background-light font-[Monument-R] font-bold"
+                style={{ letterSpacing: "1px", transform: "scaleY(1.4)" }}
               >
                 Engineer
               </h1>
