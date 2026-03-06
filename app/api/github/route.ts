@@ -61,11 +61,10 @@ export async function GET() {
       })
     );
 
+    type Commit = { sha: string; message: string; repo: string; fullRepo: string; branch: string; date: string; url: string };
     const commits = commitResults
-      .filter((r): r is PromiseFulfilledResult<NonNullable<Awaited<ReturnType<typeof Promise.resolve>>>> =>
-        r.status === 'fulfilled' && r.value !== null
-      )
-      .map(r => r.value);
+      .filter((r) => r.status === 'fulfilled' && r.value !== null)
+      .map(r => (r as PromiseFulfilledResult<Commit>).value);
 
     return NextResponse.json({ commits });
   } catch (error: any) {
