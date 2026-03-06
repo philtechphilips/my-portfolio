@@ -26,10 +26,18 @@ const ContactSection: React.FC = () => {
           >
             LET'S WORK TOGETHER
           </h1>
-          <p className="text-lg md:text-xl text-[#656464] dark:text-neutral-light max-w-3xl mx-auto">
-            Have a project in mind or want to collaborate? I'm always open to discussing new opportunities 
+          <p className="text-lg md:text-xl text-[#656464] dark:text-neutral-light max-w-3xl mx-auto mb-10">
+            Have a project in mind or want to collaborate? I'm always open to discussing new opportunities
             and creative ideas.
           </p>
+          <a
+            href="mailto:pelumiisola87@gmail.com"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-gray-800 dark:bg-neutral-light text-white dark:text-background-dark hover:bg-gray-700 dark:hover:bg-gray-300 transition-all duration-300 text-sm font-semibold group"
+          >
+            <i className="ri-mail-send-line text-lg"></i>
+            Say Hello
+            <i className="ri-arrow-right-line text-lg group-hover:translate-x-1 transition-transform"></i>
+          </a>
         </div>
 
         {/* Contact Methods Grid */}
