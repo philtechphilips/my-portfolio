@@ -103,12 +103,11 @@ const ProjectsSection: React.FC = () => {
 
                 {/* Project Info */}
                 <div className={`space-y-6 ${!isEven ? 'md:col-start-1 md:row-start-1' : ''}`}>
-                  {/* Category & Year */}
+                  {/* Category */}
                   <div className="flex items-center gap-4 text-xs text-[#656464] dark:text-neutral-light">
                     <span className="px-3 py-1 border border-gray-300 dark:border-neutral-dark rounded-full">
                       {project.category}
                     </span>
-                    <span>{project.year}</span>
                   </div>
 
                   {/* Project Title */}
