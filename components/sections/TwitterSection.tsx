@@ -136,13 +136,15 @@ const TwitterSection = () => {
                     )}
                 </div>
 
-                {/* Bottom decorative bar */}
-                <div className="mt-20 flex items-center gap-4 overflow-hidden whitespace-nowrap opacity-10 select-none" data-aos="fade-in">
-                    {[...Array(10)].map((_, i) => (
-                        <span key={i} className="text-4xl font-bold font-[Monument-R] uppercase tracking-tighter italic">
-                            Code Security Performance Scalability
-                        </span>
-                    ))}
+                {/* Bottom decorative marquee bar */}
+                <div className="mt-20 overflow-hidden whitespace-nowrap opacity-10 select-none">
+                    <div className="animate-marquee gap-12 items-center">
+                        {[...Array(20)].map((_, i) => (
+                            <span key={i} className="text-4xl font-bold font-[Monument-R] uppercase tracking-tighter italic mr-12">
+                                Code &nbsp;·&nbsp; Security &nbsp;·&nbsp; Performance &nbsp;·&nbsp; Scalability
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

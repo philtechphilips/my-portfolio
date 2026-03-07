@@ -2,6 +2,26 @@ import { Project, Skill, Testimonial, BlogPost, Tweet } from '@/types';
 
 export const projects: Project[] = [
   {
+    id: '9',
+    title: 'Autofill AI',
+    company: 'Autofill AI',
+    slug: 'autofill-ai',
+    description: 'AI-powered Chrome extension that helps users fill out web forms faster and smarter — without ever submitting anything on their behalf.',
+    longDescription: 'Built the full product end-to-end: the Chrome extension, the marketing website, and the backend API. Autofill.ai uses AI to suggest relevant, coherent text for forms, emails, cover letters, bios, and more. The extension integrates directly into the browser and works across most websites, giving users one-click AI text enhancement while keeping them fully in control of their submissions.',
+    technologies: ['Chrome Extension', 'TypeScript', 'Node.js', 'Next.js', 'AI/LLM APIs', 'REST APIs'],
+    category: 'Full-Stack',
+    year: '2025',
+    imageUrl: '/images/autofill_ai.png',
+    liveUrl: 'https://www.autofill.live/',
+    features: [
+      'Smart Autofill: instantly fills text fields with relevant, coherent AI-generated content',
+      'AI Text Enhancement: improve writing in any text area with one click',
+      'Secure & Private: never submits forms on the user\'s behalf — full user control at all times',
+      'Works across most websites and online forms',
+      'Built the Chrome extension, marketing website, and backend API end-to-end',
+    ],
+  },
+  {
     id: '1',
     title: 'Oleefee',
     company: 'Oleefee',
@@ -177,8 +197,17 @@ export const skills: Skill[] = [
 
   // Tools
   { id: '12', name: 'Git/GitHub', category: 'Tools', proficiency: 90 },
-  { id: '13', name: 'CI/CD', category: 'Tools', proficiency: 85 },
+  { id: '13', name: 'CI/CD Pipelines', category: 'Tools', proficiency: 85 },
   { id: '14', name: 'App Security', category: 'Tools', proficiency: 88 },
+  { id: '15', name: 'Docker', category: 'Tools', proficiency: 82 },
+  { id: '16', name: 'AWS / Azure', category: 'Tools', proficiency: 78 },
+  { id: '17', name: 'REST APIs', category: 'Tools', proficiency: 95 },
+  { id: '18', name: 'Postman', category: 'Tools', proficiency: 90 },
+  { id: '19', name: 'Jest / Supertest', category: 'Tools', proficiency: 82 },
+  { id: '20', name: 'GraphQL', category: 'Tools', proficiency: 75 },
+  { id: '21', name: 'Kubernetes', category: 'Tools', proficiency: 70 },
+  { id: '22', name: 'Terraform', category: 'Tools', proficiency: 68 },
+  { id: '23', name: 'Jenkins', category: 'Tools', proficiency: 72 },
 ];
 
 export const testimonials: Testimonial[] = [

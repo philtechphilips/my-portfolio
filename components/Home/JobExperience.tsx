@@ -13,19 +13,6 @@ const JobExperience = () => {
 
   const experiences = [
     {
-      company: 'Paxform',
-      role: 'Senior Software Engineer',
-      type: 'Contract',
-      location: 'Remote',
-      period: '2024 - Present',
-      achievements: [
-        'Integrated multiple third-party APIs including Zoho CRM, Stripe, Google Drive, Microsoft OneDrive, Dropbox, Xero, Smokeball and FYI',
-        'Developed custom email templates with dynamic customization and cross-client compatibility',
-        'Led code reviews and maintained quality standards using GitLab CI/CD pipelines',
-        'Contributed to V2 dashboard redesign with improved state management and performance',
-      ],
-    },
-    {
       company: 'AB-InBev',
       role: 'Backend Developer',
       type: 'Full-time',
@@ -36,6 +23,19 @@ const JobExperience = () => {
         'Successfully launched application organization-wide throughout the continent',
         'Migrated queuing system from Redis/Bull to Azure Service Bus for better scalability',
         'Wrote comprehensive technical documentation published on Confluence',
+      ],
+    },
+    {
+      company: 'Paxform',
+      role: 'Senior Software Engineer',
+      type: 'Contract',
+      location: 'Remote',
+      period: 'Jan 2025 - Oct 2025',
+      achievements: [
+        'Integrated multiple third-party APIs including Zoho CRM, Stripe, Google Drive, Microsoft OneDrive, Dropbox, Xero, Smokeball and FYI',
+        'Developed custom email templates with dynamic customization and cross-client compatibility',
+        'Led code reviews and maintained quality standards using GitLab CI/CD pipelines',
+        'Contributed to V2 dashboard redesign with improved state management and performance',
       ],
     },
     {
@@ -145,6 +145,90 @@ const JobExperience = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* ── Education ── */}
+        <div className="mt-20 pt-16 border-t border-gray-200 dark:border-neutral-dark" data-aos="fade-up">
+          <h2
+            className="font-[Monument-R] md:text-4xl text-2xl mb-12"
+            style={{ letterSpacing: "3px", transform: "scaleY(1.2)" }}
+          >
+            EDUCATION
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* HND */}
+            <div className="border-l-2 border-gray-800 dark:border-neutral-light pl-6 py-1" data-aos="fade-up" data-aos-delay="100">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-[10px] px-2 py-0.5 border border-gray-300 dark:border-neutral-dark rounded-full text-[#656464] dark:text-neutral-light uppercase tracking-wider">
+                  HND
+                </span>
+                <span className="text-[10px] text-[#656464] dark:text-neutral-light uppercase tracking-widest">
+                  2023 – 2025
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-1">Computer Engineering</h3>
+              <p className="text-sm text-[#656464] dark:text-neutral-light mb-4">
+                Yaba College of Technology
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-xs text-[#656464] dark:text-neutral-light">
+                  <span className="w-1.5 h-1.5 bg-gray-800 dark:bg-neutral-light flex-shrink-0" />
+                  Graduated with Distinction
+                </div>
+                <div className="flex items-center gap-2 text-xs text-[#656464] dark:text-neutral-light">
+                  <span className="w-1.5 h-1.5 bg-gray-800 dark:bg-neutral-light flex-shrink-0" />
+                  Best Graduating Computer Engineering Student
+                </div>
+              </div>
+            </div>
+
+            {/* ND */}
+            <div className="border-l-2 border-gray-800 dark:border-neutral-light pl-6 py-1" data-aos="fade-up" data-aos-delay="200">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-[10px] px-2 py-0.5 border border-gray-300 dark:border-neutral-dark rounded-full text-[#656464] dark:text-neutral-light uppercase tracking-wider">
+                  ND
+                </span>
+                <span className="text-[10px] text-[#656464] dark:text-neutral-light uppercase tracking-widest">
+                  2018 – 2020
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-1">Computer Engineering</h3>
+              <p className="text-sm text-[#656464] dark:text-neutral-light mb-4">
+                Yaba College of Technology
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-xs text-[#656464] dark:text-neutral-light">
+                  <span className="w-1.5 h-1.5 bg-gray-800 dark:bg-neutral-light flex-shrink-0" />
+                  Graduated with Distinction
+                </div>
+                <div className="flex items-center gap-2 text-xs text-[#656464] dark:text-neutral-light">
+                  <span className="w-1.5 h-1.5 bg-gray-800 dark:bg-neutral-light flex-shrink-0" />
+                  Best Graduating Computer Engineering Student
+                </div>
+              </div>
+            </div>
+
+            {/* NYSC */}
+            <div className="border-l-2 border-gray-800 dark:border-neutral-light pl-6 py-1" data-aos="fade-up" data-aos-delay="300">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-[10px] px-2 py-0.5 border border-gray-300 dark:border-neutral-dark rounded-full text-[#656464] dark:text-neutral-light uppercase tracking-wider">
+                  NYSC
+                </span>
+                <span className="text-[10px] text-[#656464] dark:text-neutral-light uppercase tracking-widest">
+                  2025
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-1">National Youth Service Corps</h3>
+              <p className="text-sm text-[#656464] dark:text-neutral-light mb-4">
+                Federal Republic of Nigeria
+              </p>
+              <div className="flex items-center gap-2 text-xs text-[#656464] dark:text-neutral-light">
+                <span className="w-1.5 h-1.5 bg-gray-800 dark:bg-neutral-light flex-shrink-0" />
+                Exemption Certificate
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Footer Note */}
