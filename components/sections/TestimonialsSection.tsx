@@ -32,12 +32,9 @@ const TestimonialsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16" data-aos="fade-up">
-          <h1
-            className="font-[Monument-R] md:text-6xl text-3xl mb-6"
-            style={{ letterSpacing: "4px", transform: "scaleY(1.2)" }}
-          >
-            TESTIMONIALS
-          </h1>
+          <h2 className="font-[Monument-R] text-3xl md:text-5xl uppercase tracking-tight mb-6">
+            Testimonials
+          </h2>
         </div>
 
         {/* Testimonial Display - Two Column Layout */}

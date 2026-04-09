@@ -82,12 +82,9 @@ const JobExperience = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16" data-aos="fade-up">
-          <h1
-            className="font-[Monument-R] md:text-6xl text-3xl mb-6"
-            style={{ letterSpacing: "4px", transform: "scaleY(1.2)" }}
-          >
-            WORK EXPERIENCE
-          </h1>
+          <h2 className="font-[Monument-R] text-3xl md:text-5xl uppercase tracking-tight mb-6">
+            Work Experience
+          </h2>
           <p className="text-sm text-[#656464] dark:text-neutral-light md:w-2/3">
             Professional journey building impactful solutions across fintech, enterprise, and creative industries
           </p>
@@ -149,11 +146,8 @@ const JobExperience = () => {
 
         {/* ── Education ── */}
         <div className="mt-20 pt-16 border-t border-gray-200 dark:border-neutral-dark" data-aos="fade-up">
-          <h2
-            className="font-[Monument-R] md:text-4xl text-2xl mb-12"
-            style={{ letterSpacing: "3px", transform: "scaleY(1.2)" }}
-          >
-            EDUCATION
+          <h2 className="font-[Monument-R] text-2xl md:text-4xl uppercase tracking-tight mb-12">
+            Education
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">

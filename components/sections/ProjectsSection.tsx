@@ -29,12 +29,9 @@ const ProjectsSection: React.FC = () => {
         {/* Header */}
         <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8" data-aos="fade-up">
           <div>
-            <h1
-              className="font-[Monument-R] md:text-6xl text-3xl mb-6"
-              style={{ letterSpacing: "4px", transform: "scaleY(1.2)" }}
-            >
-              RECENT PROJECTS
-            </h1>
+            <h2 className="font-[Monument-R] text-3xl md:text-5xl uppercase tracking-tight mb-6">
+              Recent Projects
+            </h2>
             <p className="text-sm text-[#656464] dark:text-neutral-light md:w-2/3">
               A selection of projects that demonstrate my expertise in building scalable, secure applications.
             </p>

@@ -20,12 +20,9 @@ const ContactSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-20 text-center" data-aos="fade-up">
-          <h1
-            className="font-[Monument-R] md:text-6xl text-3xl mb-6"
-            style={{ letterSpacing: "4px", transform: "scaleY(1.2)" }}
-          >
-            LET'S WORK TOGETHER
-          </h1>
+          <h2 className="font-[Monument-R] text-3xl md:text-5xl uppercase tracking-tight mb-6">
+            Let's Work Together
+          </h2>
           <p className="text-lg md:text-xl text-[#656464] dark:text-neutral-light max-w-3xl mx-auto mb-10">
             Have a project in mind or want to collaborate? I'm always open to discussing new opportunities
             and creative ideas.

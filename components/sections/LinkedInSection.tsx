@@ -47,10 +47,7 @@ const LinkedInSection = () => {
                 Professional Network
               </span>
             </div>
-            <h2
-              className="font-[Monument-R] text-[clamp(2.8rem,7vw,6.5rem)] uppercase leading-[0.95] text-gray-900 dark:text-white mb-8"
-              style={{ letterSpacing: '2px', transform: 'scaleY(1.15)' }}
-            >
+            <h2 className="font-[Monument-R] text-3xl md:text-5xl uppercase tracking-tight leading-tight text-gray-900 dark:text-white mb-8">
               Featured<br />LinkedIn
             </h2>
             <p className="text-gray-500 dark:text-neutral-400 text-base leading-relaxed max-w-sm mb-10">
