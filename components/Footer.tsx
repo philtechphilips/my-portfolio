@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 const Footer = () => {
@@ -25,12 +26,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className='flex items-center gap-3 mb-6'>
-              <div className='w-12 h-12 border-2 border-gray-800 dark:border-neutral-light flex items-center justify-center'>
-                <span className='font-[Monument-R] font-bold text-base'>PI</span>
-              </div>
-              <div className='font-semibold text-lg'>
-                Pelumi Isola
-              </div>
+              <Image src="/images/my-image.jpeg" alt="Pelumi Isola" width={48} height={48} className='rounded-full object-cover w-12 h-12' />
+              <div className='font-semibold text-lg'>Pelumi Isola</div>
             </div>
             <p className="text-sm text-[#656464] dark:text-neutral-light mb-6 max-w-sm">
               Security-focused full-stack developer building scalable, impactful solutions. 
