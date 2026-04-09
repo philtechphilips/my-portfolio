@@ -19,9 +19,9 @@ const ProjectsSection: React.FC = () => {
 
   const categories: ProjectCategoryType[] = ['All', 'Frontend', 'Backend', 'Full-Stack'];
 
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
+  const filteredProjects = selectedCategory === 'All'
+    ? projects
+    : projects.filter(project => project.category.includes(selectedCategory));
 
   return (
     <section id="projects" className="py-20 px-5 md:px-20">
@@ -106,7 +106,7 @@ const ProjectsSection: React.FC = () => {
                   {/* Category */}
                   <div className="flex items-center gap-4 text-xs text-[#656464] dark:text-neutral-light">
                     <span className="px-3 py-1 border border-gray-300 dark:border-neutral-dark rounded-full">
-                      {project.category}
+                      {project.category.join(' · ')}
                     </span>
                   </div>
 

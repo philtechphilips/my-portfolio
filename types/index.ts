@@ -6,7 +6,7 @@ export interface Project {
   description: string;
   longDescription: string;
   technologies: string[];
-  category: 'Frontend' | 'Backend' | 'Full-Stack';
+  category: ('Frontend' | 'Backend' | 'Full-Stack')[];
   year: string;
   imageUrl: string;
   liveUrl?: string;
