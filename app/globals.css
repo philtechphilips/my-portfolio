@@ -1,57 +1,142 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'moglan';
-  src: url('../public/fonts/moglan_ttf-webfont.woff') format('woff');
-  src: url('../public/fonts/moglan_ttf-webfont.woff2') format('woff2');
-  font-weight: 600 !important;
-  font-style: normal;
-}
+/* ══════════════════════════════════════════════════════════════
+   Typefaces — self-hosted, no CDN dependency
+   Chillax (Fontshare) carries display; Schibsted Grotesk (Google) carries text.
+   ══════════════════════════════════════════════════════════════ */
 
 @font-face {
-  font-family: 'GT';
-  src: url('../public/fonts/GT-Haptik-Regular.woff') format('woff');
-  font-weight: 100 !important;
-}
-
-@font-face {
-  font-family: 'Sathoshi';
-  src: url('../public/fonts/Satoshi-Regular.otf') format('opentype');
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-300.woff2') format('woff2');
   font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
+/* Variable font — one file covers 400–700 */
 @font-face {
-  font-family: 'Monument';
-  src: url('../public/fonts/MonumentExtended-Ultrabold.otf') format('opentype');
-  font-weight: 700 !important;
+  font-family: 'Schibsted Grotesk';
+  src: url('/fonts/SchibstedGrotesk-latin.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  src: url('/fonts/SchibstedGrotesk-latin-ext.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
-@font-face {
-  font-family: 'Monument-R';
-  src: url('../public/fonts/MonumentExtended-Regular.otf') format('opentype');
-  font-weight: 700 !important;
-}
+/* ══════════════════════════════════════════════════════════════
+   Colour tokens — RGB triplets so Tailwind opacity modifiers work.
+   Light values from Aiko's palette; dark values from Aiko's `.inverse`.
+   ══════════════════════════════════════════════════════════════ */
 
 :root {
-  --primary: #1560BD;
-  --primary-light: #2D7DD6;
-  --primary-dark: #0E4A9A;
-  --secondary: #536878;
-  --accent: #4682b4;
-  --background: #FAFAFA;
-  --text-primary: #232121;
-  --text-secondary: #656464;
+  --c-bg: 250 250 250;          /* #fafafa — Aiko paper */
+  --c-bg-alt: 248 248 248;
+  --c-surface: 255 255 255;
+  --c-fg: 22 23 23;             /* #161717 — Aiko ink */
+  --c-fg-muted: 92 92 92;
+  --c-fg-subtle: 138 138 138;
+  --c-rule: 232 232 232;        /* #e8e8e8 — Aiko hairline */
+  --c-rule-strong: 22 23 23;
+  /* Monochrome accent: emphasis comes from contrast, not hue.
+     Swap these two lines for a colour if one is ever wanted. */
+  --c-accent: 22 23 23;
+  --c-accent-fg: 250 250 250;
+  --c-inverse-bg: 22 23 23;
+  --c-inverse-fg: 250 250 250;
+
+  --shell-pad: 1.25rem;
 }
 
 .dark {
-  --background: #1C2328;
-  --text-primary: #FAFAFA;
-  --text-secondary: #91A3B0;
+  --c-bg: 22 23 23;             /* #161717 */
+  --c-bg-alt: 29 30 31;         /* #1d1e1f — Aiko's second ink */
+  --c-surface: 31 32 33;
+  --c-fg: 250 250 250;
+  --c-fg-muted: 168 168 168;
+  --c-fg-subtle: 125 125 125;
+  --c-rule: 51 52 52;           /* rgba(255,255,255,.15) flattened over ink */
+  --c-rule-strong: 250 250 250;
+  --c-accent: 250 250 250;
+  --c-accent-fg: 22 23 23;
+  --c-inverse-bg: 250 250 250;
+  --c-inverse-fg: 22 23 23;
 }
+
+@media (min-width: 768px) {
+  :root { --shell-pad: 5rem; }
+}
+
+/* ── Aiko's `.inverse`: a band that flips the whole token set ──
+   Used as a structural device, not decoration — inverted sections
+   break the page into movements. Always contrasts with the page
+   ground, so it flips again inside dark mode.                    */
+
+.inverse {
+  --c-bg: 22 23 23;
+  --c-bg-alt: 29 30 31;
+  --c-surface: 31 32 33;
+  --c-fg: 250 250 250;
+  --c-fg-muted: 168 168 168;
+  --c-fg-subtle: 125 125 125;
+  --c-rule: 51 52 52;
+  --c-rule-strong: 250 250 250;
+  --c-inverse-bg: 250 250 250;
+  --c-inverse-fg: 22 23 23;
+  background-color: rgb(var(--c-bg));
+  color: rgb(var(--c-fg));
+}
+
+.dark .inverse {
+  --c-bg: 250 250 250;
+  --c-bg-alt: 248 248 248;
+  --c-surface: 255 255 255;
+  --c-fg: 22 23 23;
+  --c-fg-muted: 92 92 92;
+  --c-fg-subtle: 138 138 138;
+  --c-rule: 232 232 232;
+  --c-rule-strong: 22 23 23;
+  --c-inverse-bg: 22 23 23;
+  --c-inverse-fg: 250 250 250;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Base
+   ══════════════════════════════════════════════════════════════ */
 
 * {
   margin: 0;
@@ -59,163 +144,277 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Source Sans 3', 'Sathoshi', sans-serif !important;
-  background-color: var(--background) !important;
-  color: var(--text-primary);
-  cursor: default;
-  overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', sans-serif;
-}
-
-.font-brand {
-  font-family: 'Monument-R', 'Monument', sans-serif;
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+body {
+  font-family: 'Schibsted Grotesk', system-ui, sans-serif;
+  background-color: rgb(var(--c-bg));
+  color: rgb(var(--c-fg));
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--background);
+/* Aiko sets every heading at light weight — never bold. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Chillax', system-ui, sans-serif;
+  font-weight: 400;
+  text-wrap: balance;
 }
 
+::selection {
+  background: rgb(var(--c-accent));
+  color: rgb(var(--c-accent-fg));
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: rgb(var(--c-bg)); }
 ::-webkit-scrollbar-thumb {
-  background: var(--secondary);
-  border-radius: 5px;
+  background: rgb(var(--c-rule));
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover { background: rgb(var(--c-fg-subtle)); }
+
+:focus-visible {
+  outline: 2px solid rgb(var(--c-fg));
+  outline-offset: 2px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-/* Custom cursor follower */
-.follow-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--primary);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, border-color 0.2s;
-  z-index: 9999;
+/* ══════════════════════════════════════════════════════════════
+   Components
+   ══════════════════════════════════════════════════════════════ */
+
+@layer components {
+  /* Page shell — Nova's container rhythm */
+  .shell {
+    @apply max-w-shell mx-auto w-full;
+    padding-left: var(--shell-pad);
+    padding-right: var(--shell-pad);
+  }
+
+  .section {
+    @apply py-section-sm md:py-section;
+  }
+
+  /* Aiko `.text-meta` verbatim: Chillax, 13px, 0.5px tracking, uppercase, 400 */
+  .meta {
+    @apply font-display text-meta uppercase font-normal text-fg-subtle;
+  }
+
+  .meta-strong {
+    @apply font-display text-meta uppercase font-normal text-fg;
+  }
+
+  /* Eyebrow: short rule + label, opens most sections */
+  .eyebrow {
+    @apply flex items-center gap-3 mb-6;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply block w-8 h-px bg-fg-subtle;
+  }
+
+  /* Aiko `.button` verbatim: Chillax 13px / 0.5px / uppercase / 400,
+     1px hairline, 4px radius, 0.75rem 1rem padding, 100% line-height */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn
+           font-display text-meta-lg uppercase font-normal leading-none
+           py-3 px-4 border transition-colors duration-200 ease-aiko;
+  }
+
+  .btn-solid {
+    @apply bg-inverse text-inverse-fg border-transparent hover:bg-fg-muted;
+  }
+
+  .btn-outline {
+    @apply bg-transparent text-fg border-rule hover:border-rule-strong;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-fg border-transparent hover:brightness-95;
+  }
+
+  /* Nova `.skill`: 8px/12px padding, 1px hairline, colour+border transition.
+     Radius takes Aiko's 4px instead of Nova's 60px pill (Aiko skin wins). */
+  .chip {
+    @apply inline-flex items-center rounded-chip border border-rule
+           py-2 px-3 text-sm text-fg-muted
+           transition-colors duration-300 ease-aiko;
+  }
+  .chip:hover {
+    @apply border-rule-strong text-fg;
+  }
+
+  .chip-active {
+    @apply bg-inverse text-inverse-fg border-transparent;
+  }
+
+  /* Nova `.skill-wrapper`: wrapping flex row, 8px gap */
+  .skill-wrapper {
+    @apply flex flex-wrap items-center justify-start gap-2 self-start;
+  }
+
+  /* Nova `.how-it-work-content`: left hairline + 24px inset, stacked column */
+  .rule-left {
+    @apply flex flex-col justify-start items-start
+           border-l border-rule pl-6 gap-2;
+  }
+
+
+  /* ── Circular icon badge — Aiko ── */
+  .badge {
+    @apply w-10 h-10 rounded-full border border-rule
+           flex items-center justify-center text-base text-fg
+           transition-colors duration-200 ease-aiko;
+  }
+  .badge:hover {
+    @apply bg-inverse text-inverse-fg border-transparent;
+  }
+
+  /* ── Card: hairline, near-square ── */
+  .card {
+    @apply border border-rule rounded-card bg-surface
+           transition-colors duration-300 ease-aiko;
+  }
+  .card:hover {
+    @apply border-rule-strong;
+  }
+
+  /* ── Nova's case-study card: left rule, stacked label/value ── */
+  .case-row {
+    @apply border-l border-rule pl-5 py-1;
+  }
+  .case-row-key {
+    @apply meta mb-1.5 block;
+  }
+  .case-row-value {
+    @apply text-sm text-fg-muted leading-relaxed;
+  }
+
+  /* ── Nova's counter ── */
+  .counter-value {
+    @apply font-display text-h3 font-normal leading-none text-fg;
+    font-variant-numeric: tabular-nums;
+  }
+  .counter-label {
+    @apply meta mt-2 block;
+  }
+
+  /* Underlined text link */
+  .link-rule {
+    @apply text-fg border-b border-rule-strong pb-0.5
+           transition-colors duration-200 hover:border-accent hover:text-fg-muted;
+  }
+
+  /* ── Enhanced UI & Glassmorphism ── */
+  .glass-card {
+    background: rgba(var(--c-surface), 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(var(--c-fg), 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-card:hover {
+    border-color: rgba(var(--c-fg), 0.2);
+    transform: translateY(-2px);
+  }
+  .dark .glass-card {
+    background: rgba(var(--c-surface), 0.55);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .dark .glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+
+  .glow-border {
+    position: relative;
+  }
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(var(--c-fg), 0.25), transparent 60%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    opacity: 0.5;
+  }
+  .glow-border:hover::before {
+    opacity: 1;
+  }
+
+  /* Subtle gradient text highlight */
+  .text-gradient {
+    background: linear-gradient(135deg, rgb(var(--c-fg)) 0%, rgb(var(--c-fg-muted)) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-mesh-pattern {
+    background-image: radial-gradient(rgba(var(--c-fg), 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
 }
 
-.follow-cursor.hovered {
-  width: 40px;
-  height: 40px;
-  border-color: var(--accent);
-}
+/* ══════════════════════════════════════════════════════════════
+   Motion
+   ══════════════════════════════════════════════════════════════ */
 
-/* Animation classes */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Glassmorphism effect */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.dark .glass {
-  background: rgba(28, 35, 40, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Button styles */
-.btn {
-  @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 ease-in-out;
-}
-
-.btn-primary {
-  @apply bg-primary text-white hover:bg-primary-dark hover:shadow-lg hover:scale-105;
-}
-
-.btn-secondary {
-  @apply border-2 border-primary text-primary hover:bg-primary hover:text-white hover:shadow-lg;
-}
-
-.dark .btn-secondary {
-  @apply border-primary-light text-primary-light hover:bg-primary-light hover:text-background-dark;
-}
-
-/* Card hover effect */
-.card-hover {
-  @apply transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1;
-}
-
-/* Modal overlay */
-.modal-overlay {
-  @apply fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center;
-}
-
-/* Input focus styles */
-input:focus, textarea:focus, select:focus {
-  @apply outline-none ring-2 ring-primary ring-opacity-50;
-}
-
-.dark input:focus, .dark textarea:focus, .dark select:focus {
-  @apply ring-primary-light;
-}
-
-/* Marquee / ticker animation */
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
 .animate-marquee {
-  animation: marquee 40s linear infinite;
+  animation: marquee 45s linear infinite;
   display: flex;
   width: max-content;
   will-change: transform;
 }
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
+.animate-marquee:hover { animation-play-state: paused; }
 
 @keyframes marquee-reverse {
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
-
 .animate-marquee-reverse {
-  animation: marquee-reverse 40s linear infinite;
+  animation: marquee-reverse 45s linear infinite;
   display: flex;
   width: max-content;
   will-change: transform;
 }
-
-.animate-marquee-reverse:hover {
-  animation-play-state: paused;
-}
+.animate-marquee-reverse:hover { animation-play-state: paused; }
 
 @keyframes expand-width {
   0% { width: 0; }
   100% { width: 100%; }
 }
-
 .animate-expand-width {
   animation: expand-width 0.9s ease-out 0.9s forwards;
 }
@@ -226,7 +425,15 @@ input:focus, textarea:focus, select:focus {
   80%  { opacity: 1; }
   100% { transform: translateY(300%); opacity: 0; }
 }
-
 .animate-slide-down {
   animation: slide-down 1.6s ease-in-out infinite;
 }
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+

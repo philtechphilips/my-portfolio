@@ -45,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({
       onClick={onClose}
     >
       <div 
-        className={`bg-background-light dark:bg-background-dark rounded-xl shadow-2xl ${maxWidthClasses[maxWidth]} w-full max-h-[90vh] overflow-y-auto animate-scale-in`}
+        className={`bg-surface border border-rule rounded-card ${maxWidthClasses[maxWidth]} w-full max-h-[90vh] overflow-y-auto animate-scale-in`}
         onClick={(e) => e.stopPropagation()}
       >
         {title && (

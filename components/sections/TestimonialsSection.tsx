@@ -28,56 +28,55 @@ const TestimonialsSection: React.FC = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-20 px-5 md:px-20 bg-neutral-light bg-opacity-5 dark:bg-neutral-dark dark:bg-opacity-5">
-      <div className="max-w-7xl mx-auto">
+    <section className="section bg-bg-alt border-y border-rule">
+      <div className="shell">
+
         {/* Header */}
-        <div className="mb-16" data-aos="fade-up">
-          <h2 className="font-[Monument-R] text-3xl md:text-5xl uppercase tracking-tight mb-6">
+        <div className="mb-14" data-aos="fade-up">
+          <div className="eyebrow">
+            <span className="meta">What clients say</span>
+          </div>
+          <h2 className="font-display font-light text-h2 text-fg">
             Testimonials
           </h2>
         </div>
 
-        {/* Testimonial Display - Two Column Layout */}
-        <div className="grid md:grid-cols-12 gap-12 items-start" data-aos="fade-up" data-aos-delay="100">
-          
-          {/* Left: Author Info */}
-          <div className="md:col-span-4 space-y-8">
-            {/* Author Card */}
-            <div className="space-y-4">
-              <div className="w-20 h-20 border-2 border-gray-800 dark:border-neutral-light rounded-full flex items-center justify-center text-2xl font-semibold transition-all duration-500">
-                {getInitials(currentTestimonial.author)}
-              </div>
-              
-              <div className="transition-all duration-500">
-                <h3 className="text-2xl font-semibold mb-1">{currentTestimonial.author}</h3>
-                <p className="text-sm text-[#656464] dark:text-neutral-light">
-                  {currentTestimonial.role}
-                </p>
-                <p className="text-xs text-[#656464] dark:text-neutral-light mt-1">
-                  {currentTestimonial.company}
-                </p>
-              </div>
+        <div className="grid md:grid-cols-12 gap-10 md:gap-14 items-start" data-aos="fade-up" data-aos-delay="100">
+
+          {/* Left: author */}
+          <div className="md:col-span-4">
+            <div className="w-16 h-16 rounded-full border border-rule-strong flex items-center justify-center font-display text-h4 font-light text-fg mb-5">
+              {getInitials(currentTestimonial.author)}
             </div>
 
-            {/* Navigation Dots */}
-            <div className="flex flex-col gap-3 pt-8">
-              {testimonials.map((_, index) => (
+            <h3 className="font-display font-light text-h4 text-fg mb-1.5">
+              {currentTestimonial.author}
+            </h3>
+            <p className="text-sm text-fg-muted">{currentTestimonial.role}</p>
+            <p className="meta mt-1.5">{currentTestimonial.company}</p>
+
+            {/* Selector */}
+            <div className="flex flex-col gap-2.5 pt-8 mt-8 border-t border-rule">
+              {testimonials.map((t, index) => (
                 <button
-                  key={index}
+                  key={t.id}
                   onClick={() => handleDotClick(index)}
                   className="group flex items-center gap-3 text-left"
-                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-label={`Show testimonial from ${t.author}`}
+                  aria-current={index === currentIndex}
                 >
-                  <div className={`transition-all duration-300 ${
-                    index === currentIndex 
-                      ? 'w-12 h-0.5 bg-gray-800 dark:bg-neutral-light' 
-                      : 'w-6 h-0.5 bg-gray-300 dark:bg-neutral-dark group-hover:w-8 group-hover:bg-gray-800 dark:group-hover:bg-neutral-light'
-                  }`} />
-                  <span className={`text-xs transition-all duration-300 ${
-                    index === currentIndex
-                      ? 'text-[#232121] dark:text-background-light font-semibold'
-                      : 'text-[#656464] dark:text-neutral-light'
-                  }`}>
+                  <span
+                    className={`h-px transition-all duration-300 ease-aiko ${
+                      index === currentIndex
+                        ? 'w-12 bg-accent'
+                        : 'w-6 bg-rule group-hover:w-9 group-hover:bg-fg-subtle'
+                    }`}
+                  />
+                  <span
+                    className={`text-meta uppercase transition-colors duration-300 ${
+                      index === currentIndex ? 'text-fg' : 'text-fg-subtle'
+                    }`}
+                  >
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </button>
@@ -85,65 +84,58 @@ const TestimonialsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Quote */}
-          <div className="md:col-span-8 relative">
-            <div className="relative overflow-hidden min-h-[280px]">
+          {/* Right: quote */}
+          <div className="md:col-span-8">
+            <div className="relative min-h-[260px]">
               {testimonials.map((testimonial, index) => (
-                <div
+                <blockquote
                   key={testimonial.id}
-                  className={`transition-all duration-700 ease-in-out ${
-                    index === currentIndex 
-                      ? 'opacity-100 relative' 
-                      : 'opacity-0 absolute top-0 left-0 pointer-events-none'
+                  className={`transition-opacity duration-700 ease-aiko ${
+                    index === currentIndex
+                      ? 'opacity-100 relative'
+                      : 'opacity-0 absolute inset-0 pointer-events-none'
                   }`}
                 >
-                  {/* Large Quote Mark */}
-                  <div className="absolute -top-4 -left-2 md:-left-8 opacity-5">
-                    <i className="ri-double-quotes-l text-[120px] md:text-[180px]"></i>
-                  </div>
-
-                  {/* Quote Text */}
-                  <div className="relative z-10">
-                    <p className="text-xl md:text-2xl leading-relaxed text-[#232121] dark:text-background-light font-light mb-8">
-                      {testimonial.quote}
-                    </p>
-
-                    {/* Bottom Border Accent */}
-                    <div className="w-24 h-0.5 bg-gray-800 dark:bg-neutral-light"></div>
-                  </div>
-                </div>
+                  <i className="ri-double-quotes-l text-accent text-5xl block mb-4 leading-none" aria-hidden="true" />
+                  <p className="font-display font-light text-h4 text-fg leading-snug">
+                    {testimonial.quote}
+                  </p>
+                </blockquote>
               ))}
             </div>
 
-            {/* Counter & Navigation */}
-            <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-200 dark:border-neutral-dark">
-              <div className="text-sm text-[#656464] dark:text-neutral-light font-mono">
-                <span className="text-2xl font-semibold text-[#232121] dark:text-background-light">
-                  {String(currentIndex + 1).padStart(2, '0')}
+            {/* Counter + nav */}
+            <div className="flex items-center justify-between mt-10 pt-6 border-t border-rule">
+              <div className="flex items-baseline gap-1.5 font-display font-light text-fg tabular-nums">
+                <span className="text-h4">{String(currentIndex + 1).padStart(2, '0')}</span>
+                <span className="text-fg-subtle text-sm">/</span>
+                <span className="text-fg-subtle text-sm">
+                  {String(testimonials.length).padStart(2, '0')}
                 </span>
-                <span className="mx-2">/</span>
-                <span>{String(testimonials.length).padStart(2, '0')}</span>
               </div>
 
               <div className="flex gap-2">
                 <button
-                  onClick={() => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                  className="w-12 h-12 border border-gray-800 dark:border-neutral-light flex items-center justify-center hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300"
+                  onClick={() =>
+                    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+                  }
+                  className="badge"
                   aria-label="Previous testimonial"
                 >
-                  <i className="ri-arrow-left-s-line text-xl"></i>
+                  <i className="ri-arrow-left-line" />
                 </button>
                 <button
                   onClick={() => setCurrentIndex((prev) => (prev + 1) % testimonials.length)}
-                  className="w-12 h-12 border border-gray-800 dark:border-neutral-light flex items-center justify-center hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300"
+                  className="badge"
                   aria-label="Next testimonial"
                 >
-                  <i className="ri-arrow-right-s-line text-xl"></i>
+                  <i className="ri-arrow-right-line" />
                 </button>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

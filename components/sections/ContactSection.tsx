@@ -1,9 +1,19 @@
 "use client";
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 
+const socials = [
+  { href: 'https://github.com/philtechphilips', icon: 'ri-github-fill', label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/pelumi-isola-84661821a', icon: 'ri-linkedin-fill', label: 'LinkedIn' },
+  { href: 'https://x.com/softwareengng', icon: 'ri-twitter-x-line', label: 'X (Twitter)' },
+  { href: 'https://www.instagram.com/philipstheprogrammer/', icon: 'ri-instagram-line', label: 'Instagram' },
+  { href: 'mailto:pelumiisola87@gmail.com', icon: 'ri-mail-fill', label: 'Email' },
+];
+
 const ContactSection: React.FC = () => {
+  const [copied, setCopied] = useState(false);
+
   useEffect(() => {
     AOS.init({
       duration: 600,
@@ -11,156 +21,109 @@ const ContactSection: React.FC = () => {
     });
   }, []);
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText('pelumiisola87@gmail.com');
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText('pelumiisola87@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <section id="contact" className="py-32 px-5 md:px-20 bg-neutral-light bg-opacity-5 dark:bg-neutral-dark dark:bg-opacity-5">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="section relative">
+      <div className="shell">
+
         {/* Header */}
-        <div className="mb-20 text-center" data-aos="fade-up">
-          <h2 className="font-[Monument-R] text-3xl md:text-5xl uppercase tracking-tight mb-6">
-            Let's Work Together
+        <div className="max-w-2xl mb-16" data-aos="fade-up">
+          <div className="eyebrow">
+            <span className="meta">Get in touch</span>
+          </div>
+          <h2 className="font-display font-light text-display-l text-fg mb-6 text-gradient">
+            Let&apos;s work together
           </h2>
-          <p className="text-lg md:text-xl text-[#656464] dark:text-neutral-light max-w-3xl mx-auto mb-10">
-            Have a project in mind or want to collaborate? I'm always open to discussing new opportunities
-            and creative ideas.
+          <p className="text-base md:text-lg text-fg-muted leading-relaxed mb-8">
+            Have a project in mind or want to collaborate? I&apos;m always open to discussing
+            new opportunities, technical architectures, and engineering challenges.
           </p>
-          <a
-            href="mailto:pelumiisola87@gmail.com"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-gray-800 dark:bg-neutral-light text-white dark:text-background-dark hover:bg-gray-700 dark:hover:bg-gray-300 transition-all duration-300 text-sm font-semibold group"
-          >
-            <i className="ri-mail-send-line text-lg"></i>
+          <a href="mailto:pelumiisola87@gmail.com" className="btn btn-solid group">
+            <i className="ri-mail-send-line text-base" />
             Say Hello
-            <i className="ri-arrow-right-line text-lg group-hover:translate-x-1 transition-transform"></i>
+            <i className="ri-arrow-right-line text-base group-hover:translate-x-1 transition-transform duration-200" />
           </a>
         </div>
 
-        {/* Contact Methods Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        {/* Contact methods */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
           {/* Email */}
-          <div 
-            className="p-8 border-2 border-gray-800 dark:border-neutral-light hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300 group"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <div className="mb-6">
-              <i className="ri-mail-line text-4xl"></i>
+          <div className="glass-card p-8 rounded-xl flex flex-col group" data-aos="fade-up" data-aos-delay="100">
+            <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-fg mb-6 group-hover:scale-110 transition-transform">
+              <i className="ri-mail-line text-xl" />
             </div>
-            <h3 className="text-sm uppercase tracking-widest mb-3 text-[#656464] dark:text-neutral-light group-hover:text-white dark:group-hover:text-background-dark">
-              Email
-            </h3>
-            <a 
+            <p className="meta mb-2">Email</p>
+            <a
               href="mailto:pelumiisola87@gmail.com"
-              className="text-lg font-semibold block mb-4 break-all"
+              className="font-display font-light text-h5 text-fg break-all mb-6 hover:text-gradient transition-colors"
             >
               pelumiisola87@gmail.com
             </a>
-            <button 
+            <button
               onClick={copyEmail}
-              className="text-sm flex items-center gap-2 opacity-70 group-hover:opacity-100"
+              className="mt-auto self-start btn btn-outline py-2 px-3 text-xs"
             >
-              <i className="ri-file-copy-line"></i>
-              Copy Email
+              <i className={copied ? 'ri-check-line text-base text-success' : 'ri-file-copy-line text-base'} />
+              {copied ? 'Email Copied!' : 'Copy Email'}
             </button>
           </div>
 
           {/* Phone */}
-          <div 
-            className="p-8 border-2 border-gray-800 dark:border-neutral-light hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300 group"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div className="mb-6">
-              <i className="ri-phone-line text-4xl"></i>
+          <div className="glass-card p-8 rounded-xl flex flex-col group" data-aos="fade-up" data-aos-delay="200">
+            <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-fg mb-6 group-hover:scale-110 transition-transform">
+              <i className="ri-phone-line text-xl" />
             </div>
-            <h3 className="text-sm uppercase tracking-widest mb-3 text-[#656464] dark:text-neutral-light group-hover:text-white dark:group-hover:text-background-dark">
-              Phone
-            </h3>
-            <a 
+            <p className="meta mb-2">Phone</p>
+            <a
               href="tel:07063623539"
-              className="text-lg font-semibold block mb-4"
+              className="font-display font-light text-h5 text-fg mb-6 hover:text-gradient transition-colors"
             >
               +234 706 362 3539
             </a>
-            <p className="text-sm opacity-70">
-              Available Mon-Fri, 9AM-6PM WAT
+            <p className="text-sm text-fg-muted mt-auto">
+              Available Mon–Fri, 9AM–6PM WAT
             </p>
           </div>
 
           {/* Location */}
-          <div 
-            className="p-8 border-2 border-gray-800 dark:border-neutral-light hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300 group"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <div className="mb-6">
-              <i className="ri-map-pin-line text-4xl"></i>
+          <div className="glass-card p-8 rounded-xl flex flex-col group" data-aos="fade-up" data-aos-delay="300">
+            <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-fg mb-6 group-hover:scale-110 transition-transform">
+              <i className="ri-map-pin-line text-xl" />
             </div>
-            <h3 className="text-sm uppercase tracking-widest mb-3 text-[#656464] dark:text-neutral-light group-hover:text-white dark:group-hover:text-background-dark">
-              Location
-            </h3>
-            <p className="text-lg font-semibold block mb-4">
+            <p className="meta mb-2">Location</p>
+            <p className="font-display font-light text-h5 text-fg mb-6">
               Lagos, Nigeria
             </p>
-            <p className="text-sm opacity-70">
-              Open to remote opportunities
+            <p className="text-sm text-fg-muted mt-auto">
+              Open to worldwide remote roles
             </p>
           </div>
         </div>
 
-        {/* Social Links */}
-        <div className="text-center border-t border-gray-200 dark:border-neutral-dark pt-16" data-aos="fade-up">
-          <p className="text-sm text-[#656464] dark:text-neutral-light uppercase tracking-widest mb-6">
-            Connect with me
-          </p>
-          <div className="flex justify-center gap-4">
-            <a 
-              href="https://github.com/philtechphilips" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-14 h-14 border-2 border-gray-800 dark:border-neutral-light flex items-center justify-center hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300"
-              aria-label="GitHub"
-            >
-              <i className="ri-github-fill text-xl"></i>
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/pelumi-isola-84661821a" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-14 h-14 border-2 border-gray-800 dark:border-neutral-light flex items-center justify-center hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300"
-              aria-label="LinkedIn"
-            >
-              <i className="ri-linkedin-fill text-xl"></i>
-            </a>
-            <a 
-              href="https://x.com/softwareengng" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-14 h-14 border-2 border-gray-800 dark:border-neutral-light flex items-center justify-center hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300"
-              aria-label="X (Twitter)"
-            >
-              <i className="ri-twitter-x-line text-xl"></i>
-            </a>
-            <a 
-              href="https://www.instagram.com/philipstheprogrammer/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-14 h-14 border-2 border-gray-800 dark:border-neutral-light flex items-center justify-center hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300"
-              aria-label="Instagram"
-            >
-              <i className="ri-instagram-line text-xl"></i>
-            </a>
-            <a 
-              href="mailto:pelumiisola87@gmail.com"
-              className="w-14 h-14 border-2 border-gray-800 dark:border-neutral-light flex items-center justify-center hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300"
-              aria-label="Email"
-            >
-              <i className="ri-mail-fill text-xl"></i>
-            </a>
+        {/* Socials */}
+        <div className="pt-10 border-t border-rule/80" data-aos="fade-up">
+          <p className="meta mb-5">Connect across networks</p>
+          <div className="flex flex-wrap gap-2.5">
+            {socials.map(({ href, icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith('mailto') ? undefined : '_blank'}
+                rel="noopener noreferrer"
+                className="badge hover:scale-110 hover:border-fg-muted transition-all"
+                aria-label={label}
+              >
+                <i className={icon} />
+              </a>
+            ))}
           </div>
         </div>
+
       </div>
     </section>
   );

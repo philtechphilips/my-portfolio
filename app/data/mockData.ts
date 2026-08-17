@@ -1,4 +1,4 @@
-import { Project, Skill, Testimonial, BlogPost, Tweet } from '@/types';
+import { Project, SkillGroup, Testimonial, BlogPost, Tweet } from '@/types';
 
 export const projects: Project[] = [
   {
@@ -226,35 +226,40 @@ export const projects: Project[] = [
   },
 ];
 
-export const skills: Skill[] = [
-  // Frontend
-  { id: '1', name: 'HTML/CSS/JavaScript', category: 'Frontend', proficiency: 95 },
-  { id: '2', name: 'React.js/Next.js', category: 'Frontend', proficiency: 90 },
-  { id: '3', name: 'Tailwind CSS/SCSS', category: 'Frontend', proficiency: 88 },
-  { id: '4', name: 'Styled Components', category: 'Frontend', proficiency: 82 },
-  { id: '5', name: 'Figma', category: 'Frontend', proficiency: 80 },
-
-  // Backend
-  { id: '6', name: 'PHP/Laravel', category: 'Backend', proficiency: 88 },
-  { id: '7', name: 'Node.js/Express', category: 'Backend', proficiency: 92 },
-  { id: '8', name: 'Nest.js/TypeScript', category: 'Backend', proficiency: 85 },
-  { id: '9', name: 'MSSQL/MySQL/MongoDB', category: 'Backend', proficiency: 87 },
-  { id: '10', name: 'Redis', category: 'Backend', proficiency: 80 },
-  { id: '11', name: 'Azure Service Bus', category: 'Backend', proficiency: 75 },
-
-  // Tools
-  { id: '12', name: 'Git/GitHub', category: 'Tools', proficiency: 90 },
-  { id: '13', name: 'CI/CD Pipelines', category: 'Tools', proficiency: 85 },
-  { id: '14', name: 'App Security', category: 'Tools', proficiency: 88 },
-  { id: '15', name: 'Docker', category: 'Tools', proficiency: 82 },
-  { id: '16', name: 'AWS / Azure', category: 'Tools', proficiency: 78 },
-  { id: '17', name: 'REST APIs', category: 'Tools', proficiency: 95 },
-  { id: '18', name: 'Postman', category: 'Tools', proficiency: 90 },
-  { id: '19', name: 'Jest / Supertest', category: 'Tools', proficiency: 82 },
-  { id: '20', name: 'GraphQL', category: 'Tools', proficiency: 75 },
-  { id: '21', name: 'Kubernetes', category: 'Tools', proficiency: 70 },
-  { id: '22', name: 'Terraform', category: 'Tools', proficiency: 68 },
-  { id: '23', name: 'Jenkins', category: 'Tools', proficiency: 72 },
+/**
+ * Three pillars: Frontend, Backend, Cloud & DevOps.
+ * `usedAt` cites where the skill was actually shipped — it is the evidence
+ * behind the number, so only fill it in where there's real production work.
+ */
+/**
+ * Six stages of the delivery lifecycle — frontend through to operating it in
+ * production. Order is deliberate: it reads as "build it, ship it, run it".
+ */
+export const skillGroups: SkillGroup[] = [
+  {
+    label: 'Frontend',
+    tech: ['React', 'Next.js', 'TypeScript', 'React Native', 'Tailwind'],
+  },
+  {
+    label: 'Backend',
+    tech: ['Node.js', 'NestJS', 'Laravel', 'FastAPI', 'PostgreSQL', 'Redis'],
+  },
+  {
+    label: 'Cloud & DevOps',
+    tech: ['AWS', 'Docker', 'Linux', 'Terraform', 'Nginx', 'GitHub Actions'],
+  },
+  {
+    label: 'Databases',
+    tech: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Supabase'],
+  },
+  {
+    label: 'Testing & Observability',
+    tech: ['Playwright', 'Sentry', 'Prometheus', 'Grafana', 'Loki'],
+  },
+  {
+    label: 'Architecture & Integrations',
+    tech: ['REST APIs', 'Stripe', 'OAuth', 'Multi-tenancy', 'CI/CD', 'System Design'],
+  },
 ];
 
 export const testimonials: Testimonial[] = [
@@ -322,15 +327,15 @@ export const tweets: Tweet[] = [
     id: '1',
     text: "Just integrated a new security layer into a Laravel project. Security-first approach isn't just a buzzword, it's a necessity in modern dev. 🛡️ #Laravel #CyberSecurity #WebDev",
     createdAt: 'Feb 15, 2024',
-    url: 'https://twitter.com/softwareengng',
+    url: 'https://x.com/softwareengng',
     likes: 42,
     retweets: 12,
   },
   {
     id: '2',
-    text: "Next.js 14 hydration issues can be tricky! Using 'use client' wisely and handling mounted states is key. Always learning. 🚀 #NextJS #ReactJS #Frontend",
+    text: "Next.js 16 hydration issues can be tricky! Using 'use client' wisely and handling mounted states is key. Always learning. 🚀 #NextJS #ReactJS #Frontend",
     createdAt: 'Feb 10, 2024',
-    url: 'https://twitter.com/softwareengng',
+    url: 'https://x.com/softwareengng',
     likes: 38,
     retweets: 8,
   },
@@ -338,8 +343,47 @@ export const tweets: Tweet[] = [
     id: '3',
     text: "Building scalable APIs with Node.js is all about clean architecture and proper testing. Testing is the safety net every developer needs. 🏗️ #NodeJS #CleanCode #API",
     createdAt: 'Feb 5, 2024',
-    url: 'https://twitter.com/softwareengng',
+    url: 'https://x.com/softwareengng',
     likes: 56,
     retweets: 15,
   }
+];
+
+export const featuredMedia: import('@/types').FeaturedMedia[] = [
+  {
+    id: '1',
+    title: 'SynqDB AI Architecture & Multi-Database Walkthrough',
+    description: 'Live video walkthrough of SynqDB — connecting local PostgreSQL, MySQL, and MongoDB databases with AI SQL query generation and sub-20ms execution.',
+    platform: 'X',
+    contentType: 'video',
+    date: 'Jun 2026',
+    url: 'https://x.com/softwareengng',
+    duration: '2:45',
+    views: '4.2K',
+    tags: ['Database', 'AI', 'System Architecture'],
+  },
+  {
+    id: '2',
+    title: 'Offerra Extension — ATS Resume Parsing Demo',
+    description: 'Demonstrating 1-click ATS application form detection for Greenhouse & Lever, automated resume tailoring, and LLM interview question prediction.',
+    platform: 'X',
+    contentType: 'demo',
+    date: 'Jun 2026',
+    url: 'https://x.com/softwareengng',
+    duration: '1:50',
+    views: '3.1K',
+    tags: ['Chrome Extension', 'AI', 'Automation'],
+  },
+  {
+    id: '3',
+    title: 'Event-Driven Message Queues with Node & Redis',
+    description: 'Technical video breakdown on building resilient message queues, handling worker failures, and zero-downtime microservice communication.',
+    platform: 'X',
+    contentType: 'video',
+    date: 'May 2026',
+    url: 'https://x.com/softwareengng',
+    duration: '3:15',
+    views: '2.8K',
+    tags: ['Node.js', 'DevOps', 'Distributed Systems'],
+  },
 ];

@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='px-10 flex flex-col items-center py-10'>
+    <div className='px-10 flex flex-col items-center py-10 pt-28'>
       <h1 className='text-5xl font-semibold' data-aos="zoom-in"
           data-aos-easing="ease-in-out" data-aos-delay="50" data-aos-duration="800">Rita Data</h1>
       <ul className='flex flex-wrap items-center justify-center list-none gap-3 mt-2'>

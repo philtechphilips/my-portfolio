@@ -32,7 +32,7 @@ const TwitterSection = () => {
     }, []);
 
     return (
-        <section className="py-24 px-5 md:px-20 bg-background-light dark:bg-background-dark border-y border-gray-100 dark:border-neutral-dark/20">
+        <section className="section bg-bg border-y border-rule">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8" data-aos="fade-up">
                     <div>

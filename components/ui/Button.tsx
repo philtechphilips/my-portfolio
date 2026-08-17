@@ -19,18 +19,16 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   disabled = false,
 }) => {
-  const baseStyles = 'rounded-lg font-medium transition-all duration-300 ease-in-out';
-  
   const variantStyles = {
-    primary: 'bg-primary text-white hover:bg-primary-dark hover:shadow-lg hover:scale-105 disabled:bg-neutral disabled:cursor-not-allowed',
-    secondary: 'border-2 border-primary text-primary hover:bg-primary hover:text-white hover:shadow-lg dark:border-primary-light dark:text-primary-light dark:hover:bg-primary-light dark:hover:text-background-dark',
-    ghost: 'text-primary hover:bg-primary hover:bg-opacity-10 dark:text-primary-light',
+    primary: 'btn-solid disabled:bg-fg-subtle disabled:cursor-not-allowed',
+    secondary: 'btn-outline',
+    ghost: 'border-transparent text-fg hover:bg-accent hover:text-accent-fg',
   };
 
   const sizeStyles = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
+    sm: 'px-4 py-2.5 text-meta',
+    md: 'px-5 py-3.5 text-meta-lg',
+    lg: 'px-7 py-4 text-meta-lg',
   };
 
   return (
@@ -38,7 +36,7 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+      className={`btn ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
     >
       {children}
     </button>

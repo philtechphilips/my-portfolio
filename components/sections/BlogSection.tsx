@@ -35,7 +35,7 @@ const BlogSection: React.FC = () => {
           {blogPosts.map((post, index) => (
             <article
               key={post.id}
-              className="group bg-white dark:bg-background-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+              className="group bg-white dark:bg-background-dark rounded-xl overflow-hidden border border-rule transition-all duration-300 hover:-translate-y-2 cursor-pointer"
               data-aos="fade-up"
               data-aos-delay={index * 100}
               onClick={() => window.open(post.url, '_blank')}

@@ -3,6 +3,16 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import ThemeToggle from './ThemeToggle';
 
+const navLinks = [
+  { label: 'Skills', id: 'skills' },
+  { label: 'Experience', id: 'experience' },
+  { label: 'Projects', id: 'projects' },
+  { label: 'Contact', id: 'contact' },
+];
+
+const RESUME_URL =
+  'https://drive.google.com/file/d/1hZ9TseY942-gNlnTZSauORv98aIhQZKh/view?usp=sharing';
+
 const Navbar: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -21,116 +31,116 @@ const Navbar: React.FC = () => {
   }, [isMenuOpen]);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
   };
 
-  const navLinks = [
-    { label: 'Skills', id: 'skills' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Contact', id: 'contact' },
-  ];
+  const Brand = (
+    <>
+      <div className="relative overflow-hidden rounded-full p-0.5 border border-rule group-hover:border-fg-muted transition-colors duration-300">
+        <Image
+          src="/images/my-image.jpeg"
+          alt="Pelumi Isola"
+          width={36}
+          height={36}
+          className="rounded-full object-cover w-8 h-8 group-hover:scale-110 transition-transform duration-300"
+        />
+      </div>
+      <span className="text-meta-lg uppercase text-fg font-medium tracking-wider">Pelumi Isola</span>
+    </>
+  );
 
   if (!mounted) {
     return (
-      <nav className='fixed top-0 left-0 right-0 w-full py-6 bg-background-light dark:bg-background-dark z-40'>
-        <div className='max-w-7xl mx-auto px-5 md:px-20 flex justify-between items-center'>
-          <div className='flex items-center gap-3'>
-            <Image src="/images/my-image.jpeg" alt="Pelumi Isola" width={40} height={40} className='rounded-full object-cover w-10 h-10' />
-            <div className='font-semibold text-base'>Pelumi Isola</div>
-          </div>
-        </div>
+      <nav className="fixed top-0 left-0 right-0 w-full z-40 bg-bg">
+        <div className="shell py-5 flex items-center gap-3">{Brand}</div>
       </nav>
     );
   }
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 w-full z-40 transition-all duration-300 ${
-      scrolled || isMenuOpen
-        ? 'bg-background-light dark:bg-background-dark bg-opacity-95 dark:bg-opacity-95 backdrop-blur-md border-b border-gray-200 dark:border-neutral-dark'
-        : 'bg-transparent'
-    }`}>
-      <div className='max-w-7xl mx-auto px-5 md:px-20 py-6 flex justify-between items-center'>
-        {/* Logo */}
+    <nav
+      className={`fixed top-0 left-0 right-0 w-full z-40 transition-all duration-300 ease-aiko ${
+        scrolled || isMenuOpen
+          ? 'bg-bg/80 backdrop-blur-xl border-b border-rule py-4'
+          : 'bg-transparent py-6'
+      }`}
+    >
+      <div className="shell flex justify-between items-center">
+        {/* Brand */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className='flex items-center gap-3 cursor-pointer group'
+          className="flex items-center gap-3 group"
         >
-          <Image src="/images/my-image.jpeg" alt="Pelumi Isola" width={40} height={40} className='rounded-full object-cover w-10 h-10' />
-          <div className='font-semibold text-base group-hover:text-primary dark:group-hover:text-primary-light transition-colors'>
-            Pelumi Isola
-          </div>
+          {Brand}
         </button>
 
-        {/* Center Navigation - Hidden on mobile */}
-        <div className='hidden lg:flex items-center gap-8'>
+        {/* Center nav */}
+        <div className="hidden lg:flex items-center gap-1 bg-surface/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-rule">
           {navLinks.map(({ label, id }) => (
             <button
               key={id}
               onClick={() => scrollToSection(id)}
-              className='text-sm text-[#656464] dark:text-neutral-light hover:text-[#232121] dark:hover:text-background-light transition-colors'
+              className="relative px-3.5 py-1 text-meta-lg uppercase text-fg font-medium hover:text-fg transition-colors duration-200 group rounded-full"
             >
               {label}
+              <span className="absolute inset-0 rounded-full bg-fg/10 scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200" />
             </button>
           ))}
         </div>
 
-        {/* Right Side */}
-        <div className='flex items-center gap-4 md:gap-6'>
-          {/* Resume Link */}
+        {/* Right */}
+        <div className="flex items-center gap-3 md:gap-5">
           <a
-            href="https://drive.google.com/file/d/1hZ9TseY942-gNlnTZSauORv98aIhQZKh/view?usp=sharing"
+            href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className='hidden md:block text-sm text-[#656464] dark:text-neutral-light hover:text-[#232121] dark:hover:text-background-light transition-colors'
+            className="hidden md:flex items-center gap-1.5 btn btn-outline py-2 px-3.5 text-xs group"
           >
-            Resume
+            <span>Resume</span>
+            <i className="ri-arrow-right-up-line text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
           </a>
 
-          {/* Divider */}
-          <div className='hidden md:block w-px h-4 bg-gray-300 dark:bg-neutral-dark'></div>
+          <span className="hidden md:block w-px h-4 bg-rule" />
 
-          {/* Theme Toggle */}
           <ThemeToggle />
 
-          {/* Hamburger - Mobile only */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className='lg:hidden w-10 h-10 flex items-center justify-center border border-gray-300 dark:border-neutral-dark hover:border-gray-800 dark:hover:border-neutral-light hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300'
-            aria-label='Toggle navigation menu'
+            className="lg:hidden badge"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
           >
-            <i className={`text-lg transition-all duration-200 ${isMenuOpen ? 'ri-close-line' : 'ri-menu-line'}`}></i>
+            <i className={isMenuOpen ? 'ri-close-line' : 'ri-menu-line'} />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${
-        isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-      } bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-neutral-dark`}>
-        <div className='px-5 md:px-20 py-6 flex flex-col gap-1'>
+      {/* Mobile menu */}
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-aiko bg-bg border-t border-rule ${
+          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 border-transparent'
+        }`}
+      >
+        <div className="shell py-4 flex flex-col">
           {navLinks.map(({ label, id }) => (
             <button
               key={id}
               onClick={() => scrollToSection(id)}
-              className='text-left py-3 text-base font-medium text-[#656464] dark:text-neutral-light hover:text-[#232121] dark:hover:text-background-light border-b border-gray-100 dark:border-neutral-dark/30 last:border-b-0 transition-colors'
+              className="text-left py-3.5 text-meta-lg uppercase text-fg-muted hover:text-fg border-b border-rule transition-colors duration-200"
             >
               {label}
             </button>
           ))}
           <a
-            href="https://drive.google.com/file/d/1hZ9TseY942-gNlnTZSauORv98aIhQZKh/view?usp=sharing"
+            href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className='py-3 text-base font-medium text-[#656464] dark:text-neutral-light hover:text-[#232121] dark:hover:text-background-light transition-colors flex items-center gap-2'
+            className="py-3.5 text-meta-lg uppercase text-fg-muted hover:text-fg transition-colors duration-200 flex items-center gap-2"
             onClick={() => setIsMenuOpen(false)}
           >
             Resume
-            <i className='ri-external-link-line text-sm'></i>
+            <i className="ri-arrow-right-up-line text-sm" />
           </a>
         </div>
       </div>

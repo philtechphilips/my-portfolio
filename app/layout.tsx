@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Footer from '@/components/Footer';
-import 'gsap/dist/gsap';
-import 'gsap/dist/ScrollTrigger';
 import 'remixicon/fonts/remixicon.css';
 import 'aos/dist/aos.css';
 import Navbar from '@/components/Navbar';
 import { ThemeProvider } from '@/contexts/ThemeContext';
+import AmbientSpotlight from '@/components/ui/AmbientSpotlight';
 
 const baseUrl = 'https://pelumiisola.dev';
 
@@ -137,10 +136,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-body">
+      <body className="font-body relative">
         <ThemeProvider>
+          <AmbientSpotlight />
           <Navbar />
-          <main className="pt-20">
+          {/* Sections manage their own top clearance so full-bleed grounds
+              can run under the fixed navbar. */}
+          <main>
             {children}
           </main>
           <Footer />

@@ -9,14 +9,10 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg transition-all duration-300 hover:bg-neutral-light hover:bg-opacity-20"
-      aria-label="Toggle theme"
+      className="badge"
+      aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
     >
-      {theme === 'light' ? (
-        <i className="ri-moon-line text-xl text-text-primary"></i>
-      ) : (
-        <i className="ri-sun-line text-xl text-background-light"></i>
-      )}
+      <i className={theme === 'light' ? 'ri-moon-line' : 'ri-sun-line'} />
     </button>
   );
 };

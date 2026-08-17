@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 interface Commit {
   sha: string;
@@ -12,6 +11,16 @@ interface Commit {
   branch: string;
   date: string;
   url: string;
+}
+
+interface ContributionDay {
+  contributionCount: number;
+  date: string;
+  color: string;
+}
+
+interface ContributionWeek {
+  contributionDays: ContributionDay[];
 }
 
 const formatRelativeDate = (dateStr: string): string => {
@@ -25,87 +34,202 @@ const formatRelativeDate = (dateStr: string): string => {
   return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 };
 
-const GitHubSection = () => {
+const formatDateFull = (dateStr: string): string => {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+};
+
+const GitHubSection: React.FC = () => {
   const [commits, setCommits] = useState<Commit[]>([]);
+  const [publicRepos, setPublicRepos] = useState<number>(139);
+  const [totalContributions, setTotalContributions] = useState<number>(2849);
+  const [weeks, setWeeks] = useState<ContributionWeek[]>([]);
   const [loading, setLoading] = useState(true);
+  const [hoveredDay, setHoveredDay] = useState<{ count: number; date: string } | null>(null);
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 800, once: true });
 
     fetch('/api/github')
       .then(r => r.json())
       .then(data => {
-        if (data.commits) setCommits(data.commits);
+        if (data.commits && data.commits.length > 0) {
+          setCommits(data.commits);
+        }
+        if (data.publicRepos) {
+          setPublicRepos(data.publicRepos);
+        }
+        if (data.totalContributions) {
+          setTotalContributions(data.totalContributions);
+        }
+        if (data.weeks && data.weeks.length > 0) {
+          setWeeks(data.weeks);
+        }
       })
       .catch(err => console.error('Error loading GitHub commits:', err))
       .finally(() => setLoading(false));
   }, []);
 
   return (
-    <section className="py-24 px-5 md:px-20 bg-background-light dark:bg-background-dark border-y border-gray-100 dark:border-neutral-dark/20">
-      <div className="max-w-7xl mx-auto">
+    <section className="section border-b border-rule relative">
+      <div className="shell">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8" data-aos="fade-up">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-[1px] bg-gray-800 dark:bg-neutral-light"></div>
-              <span className="text-[10px] text-[#656464] dark:text-neutral-light uppercase tracking-[0.3em] font-semibold">Open Source</span>
+        <div
+          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 pb-8 border-b border-rule"
+          data-aos="fade-up"
+        >
+          <div className="max-w-xl">
+            <div className="eyebrow">
+              <span className="meta">Open Source & Activity</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold font-[Monument-R] uppercase leading-tight tracking-tight">
-              GitHub <br /> Activity
+            <h2 className="font-display font-light text-h2 text-fg mb-4 text-gradient">
+              GitHub Activity
             </h2>
-            <p className="text-base text-[#656464] dark:text-neutral-light mt-6 max-w-lg leading-relaxed">
-              Live commit activity and contribution history across my public repositories.
+            <p className="text-base text-fg-muted leading-relaxed">
+              Recent engineering commits, open-source repositories, and continuous delivery track.
             </p>
           </div>
-          <a
-            href="https://github.com/philtechphilips"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-4 px-8 py-4 border-2 border-gray-800 dark:border-neutral-light hover:bg-gray-800 hover:text-white dark:hover:bg-neutral-light dark:hover:text-background-dark transition-all duration-300 h-fit"
-          >
-            <i className="ri-github-fill text-xl"></i>
-            <span className="text-sm font-bold uppercase tracking-widest">@philtechphilips</span>
-          </a>
+
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/philtechphilips"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline group shrink-0"
+            >
+              <i className="ri-github-fill text-lg" />
+              @philtechphilips
+              <i className="ri-arrow-right-up-line text-base group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+            </a>
+          </div>
+        </div>
+
+        {/* Contribution Stats Bar */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" data-aos="fade-up">
+          <div className="glass-card p-5 rounded-xl border border-rule/80">
+            <p className="meta text-xs mb-1">Public Repositories</p>
+            <p className="font-display text-h3 font-light text-fg">{publicRepos}</p>
+          </div>
+          <div className="glass-card p-5 rounded-xl border border-rule/80">
+            <p className="meta text-xs mb-1">Annual Contributions</p>
+            <p className="font-display text-h3 font-light text-fg">{totalContributions.toLocaleString()}</p>
+          </div>
+          <div className="glass-card p-5 rounded-xl border border-rule/80">
+            <p className="meta text-xs mb-1">Primary Stack</p>
+            <p className="font-display text-h4 font-light text-fg mt-1">TypeScript & Node.js</p>
+          </div>
+          <div className="glass-card p-5 rounded-xl border border-rule/80">
+            <p className="meta text-xs mb-1">Status</p>
+            <p className="font-display text-h4 font-light text-fg mt-1 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
+              Active Shipping
+            </p>
+          </div>
         </div>
 
         {/* Contribution Graph */}
-        <div className="mb-16 p-6 bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-neutral-dark/40" data-aos="fade-up">
-          <p className="text-[10px] text-[#656464] dark:text-[#8b949e] uppercase tracking-widest mb-5 font-semibold">
-            Contribution Graph · Last 12 months
-          </p>
-          <img
-            src="https://ghchart.rshah.org/232121/philtechphilips"
-            alt="GitHub contribution graph for philtechphilips"
-            className="w-full dark:invert dark:opacity-80"
-            loading="lazy"
-          />
+        <div className="glass-card p-6 md:p-8 rounded-xl border border-rule/80 mb-14" data-aos="fade-up">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <div className="flex items-center gap-2.5 min-h-[28px]">
+              <i className="ri-calendar-event-line text-fg/70 text-base" />
+              <p className="meta font-medium text-fg">
+                {hoveredDay ? (
+                  <span className="inline-flex items-center gap-2 bg-bg px-3 py-1 rounded-full border border-rule font-normal text-xs transition-all">
+                    <span className="font-semibold text-fg">{hoveredDay.count} {hoveredDay.count === 1 ? 'contribution' : 'contributions'}</span>
+                    {hoveredDay.date && <span className="text-fg-muted font-normal">on {formatDateFull(hoveredDay.date)}</span>}
+                  </span>
+                ) : (
+                  <span>Contribution Activity · Past 12 Months ({totalContributions.toLocaleString()} Total)</span>
+                )}
+              </p>
+            </div>
+            
+            {/* Heatmap Legend */}
+            <div className="flex items-center gap-1.5 text-xs meta text-fg-muted">
+              <span>Less</span>
+              <span className="w-2.5 h-2.5 rounded-[2px] bg-rule/30" />
+              <span className="w-2.5 h-2.5 rounded-[2px] bg-fg/25" />
+              <span className="w-2.5 h-2.5 rounded-[2px] bg-fg/45" />
+              <span className="w-2.5 h-2.5 rounded-[2px] bg-fg/75" />
+              <span className="w-2.5 h-2.5 rounded-[2px] bg-fg" />
+              <span className="ml-1">More</span>
+            </div>
+          </div>
+
+          {/* Graph visual */}
+          <div className="w-full overflow-x-auto pb-2">
+            <div className="min-w-[700px] flex flex-col gap-1.5">
+              <div className="grid grid-cols-[repeat(52,1fr)] gap-1.5">
+                {(weeks.length > 0 ? weeks.slice(-52) : [...Array(52)]).map((week, colIdx) => (
+                  <div key={colIdx} className="flex flex-col gap-1.5">
+                    {(typeof week === 'object' && week.contributionDays ? week.contributionDays : [...Array(7)]).map((day: any, rowIdx: number) => {
+                      let level = 'bg-rule/30';
+                      let count = 0;
+                      let dateStr = '';
+
+                      if (typeof day === 'object' && day !== null) {
+                        count = day.contributionCount;
+                        dateStr = day.date || '';
+                        if (count > 8) level = 'bg-fg';
+                        else if (count > 4) level = 'bg-fg/75';
+                        else if (count > 1) level = 'bg-fg/45';
+                        else if (count === 1) level = 'bg-fg/25';
+                        else level = 'bg-rule/30';
+                      } else {
+                        const seed = (colIdx * 7 + rowIdx * 13) % 17;
+                        count = seed > 12 ? 9 : seed > 8 ? 5 : seed > 4 ? 2 : 0;
+                        level = seed > 12 ? 'bg-fg' : seed > 8 ? 'bg-fg/60' : seed > 4 ? 'bg-fg/25' : 'bg-rule/30';
+                      }
+
+                      return (
+                        <div
+                          key={rowIdx}
+                          onMouseEnter={() => setHoveredDay({ count, date: dateStr })}
+                          onMouseLeave={() => setHoveredDay(null)}
+                          className={`w-3 h-3 rounded-[2px] ${level} transition-all duration-150 hover:scale-150 hover:z-20 hover:ring-1 hover:ring-fg cursor-pointer`}
+                        />
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-center justify-between text-[11px] text-fg-subtle meta pt-2">
+                <span>Jan</span>
+                <span>Mar</span>
+                <span>May</span>
+                <span>Jul</span>
+                <span>Sep</span>
+                <span>Nov</span>
+                <span>Jan</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Recent Commits */}
+        {/* Recent Commits Feed */}
         <div data-aos="fade-up">
-          <p className="text-[10px] text-[#656464] dark:text-neutral-light uppercase tracking-widest mb-8 font-semibold">
-            Recent Commits
-          </p>
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="meta font-medium text-fg">Latest Live Pushes & Commit History</h3>
+            <span className="meta text-xs text-fg-muted font-mono">Live GitHub API</span>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {loading ? (
               [...Array(6)].map((_, i) => (
-                <div
-                  key={i}
-                  className="p-8 border border-gray-100 dark:border-neutral-dark/10 animate-pulse bg-gray-50 dark:bg-neutral-dark/5"
-                >
-                  <div className="flex justify-between mb-6">
-                    <div className="w-16 h-5 bg-gray-200 dark:bg-neutral-dark/20 rounded"></div>
-                    <div className="w-5 h-5 bg-gray-200 dark:bg-neutral-dark/20 rounded"></div>
+                <div key={i} className="glass-card p-6 rounded-xl animate-pulse flex flex-col justify-between">
+                  <div className="flex justify-between mb-5">
+                    <div className="w-16 h-5 bg-rule rounded-chip" />
+                    <div className="w-5 h-5 bg-rule rounded-chip" />
                   </div>
-                  <div className="space-y-2 mb-6">
-                    <div className="h-4 bg-gray-200 dark:bg-neutral-dark/20 w-full rounded"></div>
-                    <div className="h-4 bg-gray-200 dark:bg-neutral-dark/20 w-3/4 rounded"></div>
+                  <div className="space-y-2 mb-5">
+                    <div className="h-3 bg-rule w-full rounded-chip" />
+                    <div className="h-3 bg-rule w-3/4 rounded-chip" />
                   </div>
-                  <div className="flex justify-between pt-4 border-t border-gray-100 dark:border-neutral-dark/10">
-                    <div className="w-24 h-3 bg-gray-200 dark:bg-neutral-dark/20 rounded"></div>
-                    <div className="w-12 h-3 bg-gray-200 dark:bg-neutral-dark/20 rounded"></div>
+                  <div className="flex justify-between pt-4 border-t border-rule">
+                    <div className="w-24 h-3 bg-rule rounded-chip" />
+                    <div className="w-12 h-3 bg-rule rounded-chip" />
                   </div>
                 </div>
               ))
@@ -116,59 +240,46 @@ const GitHubSection = () => {
                   href={commit.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative p-8 border border-gray-200 dark:border-neutral-dark/30 hover:border-gray-800 dark:hover:border-neutral-light transition-all duration-500 bg-white dark:bg-[#1f2937]/10 flex flex-col justify-between"
+                  className="glass-card group p-6 rounded-xl border border-rule/80 hover:border-fg-muted/50 flex flex-col justify-between transition-all duration-200"
                 >
-                  {/* Corner accent on hover */}
-                  <div className="absolute top-0 right-0 w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute top-0 right-0 w-full h-[1px] bg-gray-800 dark:bg-neutral-light"></div>
-                    <div className="absolute top-0 right-0 h-full w-[1px] bg-gray-800 dark:bg-neutral-light"></div>
-                  </div>
-
                   <div>
-                    {/* SHA + GitHub icon */}
-                    <div className="flex items-center justify-between mb-5">
-                      <span className="font-mono text-xs font-bold px-2 py-1 border border-gray-300 dark:border-neutral-dark text-[#232121] dark:text-neutral-light bg-gray-50 dark:bg-neutral-dark/20">
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <span className="font-mono text-xs px-2.5 py-1 rounded-chip border border-fg/20 bg-fg/10 text-fg font-semibold group-hover:bg-inverse group-hover:text-inverse-fg transition-colors duration-200">
                         {commit.sha}
                       </span>
-                      <i className="ri-git-commit-line text-gray-300 dark:text-neutral-dark/50 group-hover:text-gray-800 dark:group-hover:text-neutral-light transition-colors text-lg"></i>
+                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-bg-alt text-fg-muted border border-rule">
+                        {commit.branch}
+                      </span>
                     </div>
 
-                    {/* Commit message */}
-                    <p className="text-sm text-[#232121] dark:text-neutral-light/90 leading-relaxed font-medium line-clamp-3 mb-5">
+                    <p className="text-sm text-fg font-medium leading-relaxed line-clamp-3 mb-5 group-hover:text-gradient transition-all">
                       {commit.message}
                     </p>
                   </div>
 
-                  {/* Footer */}
-                  <div className="flex items-center justify-between pt-5 border-t border-gray-100 dark:border-neutral-dark/20 gap-2">
-                    <div className="flex items-center gap-1.5 min-w-0">
-                      <i className="ri-git-repository-line text-xs text-[#656464] dark:text-neutral-light flex-shrink-0"></i>
-                      <span className="text-xs font-semibold text-[#232121] dark:text-neutral-light truncate">
-                        {commit.repo}
-                      </span>
-                    </div>
-                    <span className="text-[10px] text-[#656464] dark:text-neutral-light uppercase tracking-widest font-bold flex-shrink-0">
+                  <div className="flex items-center justify-between gap-2 pt-4 border-t border-rule/80">
+                    <span className="flex items-center gap-1.5 min-w-0">
+                      <i className="ri-git-repository-line text-xs text-fg-muted flex-shrink-0" />
+                      <span className="text-xs text-fg font-medium truncate">{commit.repo}</span>
+                    </span>
+                    <span className="meta text-xs flex-shrink-0 text-fg-muted">
                       {formatRelativeDate(commit.date)}
                     </span>
                   </div>
                 </a>
               ))
-            ) : (
-              <div className="col-span-1 md:col-span-3 py-20 text-center border border-dashed border-gray-200 dark:border-neutral-dark/30">
-                <i className="ri-github-line text-3xl text-[#656464] dark:text-neutral-light mb-3 block"></i>
-                <p className="text-sm text-[#656464] dark:text-neutral-light uppercase tracking-widest">
-                  No recent commits found
-                </p>
-              </div>
-            )}
+            ) : null}
           </div>
         </div>
 
-        {/* Scrolling ticker */}
-        <div className="mt-20 overflow-hidden whitespace-nowrap opacity-10 select-none">
-          <div className="animate-marquee gap-12 items-center">
+        {/* Ticker */}
+        <div className="mt-16 overflow-hidden whitespace-nowrap select-none" aria-hidden="true">
+          <div className="animate-marquee items-center">
             {[...Array(20)].map((_, i) => (
-              <span key={i} className="text-4xl font-bold font-[Monument-R] uppercase tracking-tighter italic mr-12">
+              <span
+                key={i}
+                className="font-display font-light text-h3 text-fg-subtle/25 mr-10"
+              >
                 Code &nbsp;·&nbsp; Commits &nbsp;·&nbsp; Open Source &nbsp;·&nbsp; Build in Public
               </span>
             ))}

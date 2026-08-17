@@ -1,0 +1,16 @@
+<!doctype html><html><head><style>html,body{margin:0;padding:0}iframe{border:0;width:1440px;display:block}</style></head><body>
+<iframe id="f" src="/"></iframe>
+<script>
+const f=document.getElementById("f");
+f.addEventListener("load",()=>{
+  const d=f.contentDocument;
+  const s=d.createElement("style");
+  s.textContent='[data-aos]{opacity:1!important;transform:none!important;transition:none!important}*{animation:none!important}';
+  d.head.appendChild(s);
+  setTimeout(()=>{
+    const h=Math.max(d.body.scrollHeight,d.documentElement.scrollHeight);
+    f.style.height=h+"px";
+    document.title="H="+h;
+  },2500);
+});
+</script></body></html>
