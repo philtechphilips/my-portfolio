@@ -27,9 +27,17 @@ import ProjectModal from '@/components/ui/ProjectModal';
 
 const categories: ProjectCategoryType[] = ['All', 'Frontend', 'Backend', 'Full-Stack'];
 
-const WorkCard: React.FC<{ project: Project; onSelect: (project: Project) => void }> = ({ project, onSelect }) => {
+type CardVariant = 'feature' | 'compact';
+
+const WorkCard: React.FC<{
+  project: Project;
+  onSelect: (project: Project) => void;
+  variant?: CardVariant;
+  index?: number;
+}> = ({ project, onSelect, variant = 'feature', index }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
+  const isFeature = variant === 'feature';
 
   const handleMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     // Only track on devices with a real pointer.
@@ -49,7 +57,9 @@ const WorkCard: React.FC<{ project: Project; onSelect: (project: Project) => voi
         ref={wrapRef}
         onMouseMove={handleMove}
         onMouseLeave={() => setPos(null)}
-        className="relative overflow-hidden rounded-lg aspect-[3/2] flex items-center justify-center bg-bg-alt"
+        className={`relative overflow-hidden rounded-lg flex items-center justify-center bg-bg-alt ${
+          isFeature ? 'aspect-[16/10]' : 'aspect-[3/2]'
+        }`}
       >
         <Image
           src={project.imageUrl}
@@ -59,9 +69,16 @@ const WorkCard: React.FC<{ project: Project; onSelect: (project: Project) => voi
           className="w-full h-full object-cover transition-transform duration-[700ms] ease-aiko group-hover:scale-[1.05]"
         />
 
+        {/* Editorial index, featured rows only */}
+        {isFeature && typeof index === 'number' && (
+          <span className="absolute top-3 right-3 z-10 meta text-[11px] text-fg/70 pointer-events-none tabular-nums">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+        )}
+
         {/* Top Floating Category Badges */}
         <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-1.5 pointer-events-none">
-          {project.category.map((cat) => (
+          {(isFeature ? project.category : project.category.slice(0, 1)).map((cat) => (
             <span key={cat} className="meta text-[11px] bg-bg/80 backdrop-blur-md text-fg px-2.5 py-1 rounded-chip border border-rule/60">
               {cat}
             </span>
@@ -78,12 +95,15 @@ const WorkCard: React.FC<{ project: Project; onSelect: (project: Project) => voi
         {/* .project-button — circle following cursor */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute z-[5] grid place-items-center rounded-full
+          className={`pointer-events-none absolute z-[5] grid place-items-center rounded-full
                      bg-inverse text-inverse-fg
-                     w-20 h-20 md:w-[110px] md:h-[110px]
-                     font-display text-meta-lg uppercase leading-none
+                     font-display uppercase leading-none
                      opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100
-                     transition-[opacity,transform] duration-300 ease-aiko"
+                     transition-[opacity,transform] duration-300 ease-aiko ${
+                       isFeature
+                         ? 'w-20 h-20 md:w-[110px] md:h-[110px] text-meta-lg'
+                         : 'w-16 h-16 md:w-[72px] md:h-[72px] text-[10px] tracking-wide'
+                     }`}
           style={
             pos
               ? { left: pos.x, top: pos.y, transform: 'translate(-50%, -50%)' }
@@ -98,10 +118,14 @@ const WorkCard: React.FC<{ project: Project; onSelect: (project: Project) => voi
       <div className="flex flex-col gap-3 px-1 pb-1">
         <div className="flex items-start justify-between gap-4">
           <div className="flex flex-col gap-1">
-            <h3 className="font-display font-normal text-fg text-h4 leading-tight group-hover:text-gradient transition-all duration-300">
+            <h3
+              className={`font-display font-normal text-fg leading-tight group-hover:text-gradient transition-all duration-300 ${
+                isFeature ? 'text-h4' : 'text-lg'
+              }`}
+            >
               {project.title}
             </h3>
-            <p className="text-sm text-fg-muted font-medium">
+            <p className={`text-fg-muted font-medium ${isFeature ? 'text-sm' : 'text-xs'}`}>
               {project.company} — {project.year}
             </p>
           </div>
@@ -120,20 +144,24 @@ const WorkCard: React.FC<{ project: Project; onSelect: (project: Project) => voi
           )}
         </div>
 
-        <p className="text-sm text-fg-muted line-clamp-2 leading-relaxed">
+        <p
+          className={`text-fg-muted leading-relaxed ${
+            isFeature ? 'text-sm line-clamp-2' : 'text-xs line-clamp-2'
+          }`}
+        >
           {project.description}
         </p>
 
         {/* Tech tags */}
         <div className="flex flex-wrap gap-1.5 pt-1">
-          {project.technologies.slice(0, 4).map((tech) => (
+          {project.technologies.slice(0, isFeature ? 4 : 3).map((tech) => (
             <span key={tech} className="text-[11px] font-mono px-2 py-0.5 rounded bg-bg-alt border border-rule text-fg font-medium">
               {tech}
             </span>
           ))}
-          {project.technologies.length > 4 && (
+          {project.technologies.length > (isFeature ? 4 : 3) && (
             <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-bg-alt border border-rule text-fg font-medium">
-              +{project.technologies.length - 4}
+              +{project.technologies.length - (isFeature ? 4 : 3)}
             </span>
           )}
         </div>
@@ -150,6 +178,11 @@ const ProjectsSection: React.FC = () => {
     selectedCategory === 'All'
       ? projects
       : projects.filter(p => p.category.includes(selectedCategory));
+
+  // Only the unfiltered view earns a hierarchy; a filtered list is short.
+  const useHierarchy = selectedCategory === 'All' && filtered.length > 4;
+  const featured = useHierarchy ? filtered.slice(0, 2) : filtered;
+  const rest = useHierarchy ? filtered.slice(2) : [];
 
   return (
     <section id="projects" className="py-section-sm md:py-section relative">
@@ -187,15 +220,47 @@ const ProjectsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* .work-collection-list — 2-up grid */}
+        {/* .work-collection-list — two featured rows, then a compact mosaic.
+            Eleven projects at identical weight read as a catalogue; leading with
+            two gives the eye somewhere to land before the rest. Filtered views
+            are already short enough to stay uniform. */}
         {filtered.length === 0 ? (
           <p className="meta py-16 text-center">No projects in this category.</p>
         ) : (
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-            {filtered.map(project => (
-              <WorkCard key={project.id} project={project} onSelect={setActiveModalProject} />
-            ))}
-          </div>
+          <>
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+              {featured.map((project, i) => (
+                <WorkCard
+                  key={project.id}
+                  project={project}
+                  index={i}
+                  variant="feature"
+                  onSelect={setActiveModalProject}
+                />
+              ))}
+            </div>
+
+            {rest.length > 0 && (
+              <>
+                <div className="flex items-center gap-4 mt-16 mb-8">
+                  <span className="meta shrink-0">More work</span>
+                  <span className="h-px flex-1 bg-rule" />
+                  <span className="meta shrink-0 tabular-nums">{rest.length}</span>
+                </div>
+
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                  {rest.map(project => (
+                    <WorkCard
+                      key={project.id}
+                      project={project}
+                      variant="compact"
+                      onSelect={setActiveModalProject}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </>
         )}
 
         {/* Footer */}

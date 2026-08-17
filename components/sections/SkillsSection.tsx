@@ -73,7 +73,7 @@ const SkillsSection: React.FC = () => {
       <div className="shell">
 
         {/* Header */}
-        <div className="max-w-3xl mb-16 md:mb-24">
+        <div className="max-w-3xl mb-12 md:mb-16">
           <div className="eyebrow">
             <span className="meta">Tech Stack & Capabilities</span>
           </div>
@@ -90,17 +90,20 @@ const SkillsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Six stages — glass cards with tech stack pills */}
-        <div className="flex flex-col gap-6 md:gap-8">
+        {/* Six stages as an editorial list. The glass-card wrapper this used to
+            carry rendered as an invisible box in dark mode — all of its padding,
+            none of its edge — so separation is a hairline rule instead, and the
+            label column is narrowed to give the stack room to breathe. */}
+        <div className="flex flex-col border-t border-rule">
           {skillGroups.map(({ label, tech }, index) => (
             <div
               key={label}
               data-anim="row"
-              className="glass-card p-6 md:p-8 rounded-xl border border-rule/80 hover:border-fg-muted/40 transition-all duration-300 grid md:grid-cols-12 gap-6 items-center"
+              className="border-b border-rule py-6 md:py-7 grid md:grid-cols-12 gap-4 md:gap-8 items-baseline transition-colors duration-300 hover:bg-fg/[0.015]"
             >
               {/* Stage label + index */}
-              <div className="md:col-span-5 flex items-center gap-4">
-                <span className="meta text-fg font-mono bg-fg/10 px-2.5 py-1 rounded-chip border border-fg/20 text-xs font-semibold shrink-0">
+              <div className="md:col-span-4 flex items-baseline gap-4">
+                <span className="meta font-mono text-fg-subtle text-xs tabular-nums shrink-0 pt-1">
                   0{index + 1}
                 </span>
                 <h3
@@ -112,7 +115,7 @@ const SkillsSection: React.FC = () => {
               </div>
 
               {/* Stack pills */}
-              <div className="md:col-span-7 flex flex-wrap gap-2">
+              <div className="md:col-span-8 flex flex-wrap gap-2 md:justify-end">
                 {tech.map((name) => (
                   <span
                     key={name}
