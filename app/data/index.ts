@@ -10,9 +10,5 @@ export const projects = [
     {
         company: "Agape Baptist College",
         slug: "agape"
-    },
-    {
-        company: "Rita Data",
-        slug: "rita"
     }
 ];

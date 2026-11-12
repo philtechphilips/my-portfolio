@@ -21,48 +21,6 @@ const RecentProject = () => {
         </h1>
       </div>
 
-      
-      <div className="flex px-5 md:mt-20 mt-0 w-full items-center gap-20">
-        <div className="hidden md:flex rounded-xl mb-4">
-          <Image
-            src="/images/oleefee.png"
-            width={550}
-            height={350}
-            alt="agape"
-          ></Image>
-        </div>
-
-        <div className="md:px-5 md:w-2/3">
-          <div className="border-b py-5 mt-10">
-            <h2 className="mb-4 text-4xl font-bold">Oleefee</h2>
-            <p className="text-sm text-gray-600 pb-[6px]">
-              Node JS/Express | Mongo DB | Postman | API
-            </p>
-            <Link href="https://oleefee.com/" target="_blank" className="text-sm text-gray-800 pb-[6px]">View Project <i className="ri-arrow-drop-right-line"></i></Link>
-          </div>
-
-          <div className="mt-10 px-5">
-            <ul className="list-disc flex flex-col gap-3">
-              <li className="text-sm text-gray-600 pb-[6px]">
-                I built new API endpoints to introduces new features into the
-                application.
-              </li>
-              <li className="text-sm text-gray-600 pb-[6px]">
-                I utilized Postman as a comprehensive tool to document and test
-                APIs. Leveraging its intuitive interface, I meticulously
-                documented API endpoints, parameters, and response structures,
-                creating thorough and easily accessible documentation.
-              </li>
-              <li className="text-sm text-gray-600 pb-[6px]">
-                I wrote unit test and integration test for the API endpoints using Jest and Supertest in order to ensure the API endpoints are working as expected and to catch bugs early.
-              </li>
-              <li className="text-sm text-gray-600 pb-[6px]">
-                Utilized: NodeJs, Express, Mongoose/MongoDB, Postman..
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
       <div className="flex px-5 md:mt-20 mt-0 w-full items-center gap-20">
       <div className="hidden md:flex rounded-xl mb-4">
@@ -200,45 +158,6 @@ const RecentProject = () => {
               </li>
               <li className="text-sm text-gray-600 pb-[6px]">
                 Utilized: NodeJs, Express, Mongoose/MongoDB, Postman..
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex px-5 md:mt-20 mt-0 w-full items-center gap-20">
-        <div className="hidden md:flex rounded-xl mb-4">
-          <Image
-            src="/images/rita.png"
-            width={550}
-            height={250}
-            alt="agape"
-          ></Image>
-        </div>
-
-        <div className="md:px-5 md:w-2/3">
-          <div className="border-b py-5 mt-10">
-            <h2 className="mb-4 text-4xl font-bold">Rita Data</h2>
-            <p className="text-sm text-gray-600 pb-[6px]">
-              HTML | CSS | JavaScript | React Js | Figma
-            </p>
-            <Link href="https://ritapersonaldata.com/" target="_blank" className="text-sm text-gray-800 pb-[6px]">View Project <i className="ri-arrow-drop-right-line"></i></Link>
-          </div>
-
-          <div className="mt-10 px-5">
-            <ul className="list-disc flex flex-col gap-3">
-              <li className="text-sm text-gray-600 pb-[6px]">
-                Built the company website's v2, featuring upgraded
-                functionalities and an enhanced user interface for an improved
-                online presence
-              </li>
-              <li className="text-sm text-gray-600 pb-[6px]">
-                Translated a meticulously designed UI into a fully functional
-                website, seamlessly integrating visual elements and interactive
-                features. This involved optimizing user experience and ensuring
-                alignment with design specifications. The result is a dynamic,
-                responsive website that captures the intended aesthetics while
-                providing a smooth and engaging browsing experience.
               </li>
             </ul>
           </div>
